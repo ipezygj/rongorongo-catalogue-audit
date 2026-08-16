@@ -8,6 +8,7 @@ authors:
   - family-names: "Väätäinen"
     given-names: "Ilpo"
     email: "ipezygj2@gmail.com"
+doi: "10.5281/zenodo.21964265"
 repository-code: "https://github.com/ipezygj/rongorongo-catalogue-audit"
 license: MIT
 keywords:
