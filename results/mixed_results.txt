@@ -1,0 +1,61 @@
+LM: 55 syllables, train 246619 syl; held-out 76133 syl; mu = -2.9633; lexicon 203 words (+syllables = 258 units)
+  lexicon head: haka era nu'u ietu me'e mai ai korua ia taŋata au atu 'atua oho 'ana tahi ruŋa nei ena ta'e 'ina aŋa koe kona raua
+
+====================================================================================================
+CALIBRATION: control M = held-out Rapa Nui, 30 frequent words as logogram symbols, rest syllable symbols
+====================================================================================================
+  control M: 15415 glyph tokens, 83 symbols, true logogram share 14%
+  lambda calibration on control M (2 restarts x 150k each):
+    lambda=0.0             score/tok +1.2692  restarts +1.2692 +1.2113  logogram share 98%  agreement 0.50  UNIT ACCURACY 0.0% (logograms right 0.0% of tokens)
+    lambda=1.0             score/tok +0.3506  restarts +0.3506 +0.3277  logogram share 85%  agreement 0.50  UNIT ACCURACY 1.1% (logograms right 1.1% of tokens)
+    lambda=2.0             score/tok -0.4262  restarts -0.4262 -0.4322  logogram share 70%  agreement 0.50  UNIT ACCURACY 0.0% (logograms right 0.0% of tokens)
+    lambda=3.0             score/tok -0.8557  restarts -0.8557 -0.9033  logogram share 34%  agreement 0.53  UNIT ACCURACY 0.7% (logograms right 0.0% of tokens)
+    lambda=4.0             score/tok -1.1226  restarts -1.1226 -1.1864  logogram share 14%  agreement 0.51  UNIT ACCURACY 0.0% (logograms right 0.0% of tokens)
+    lambda=6.0             score/tok -1.2257  restarts -1.2257 -1.2977  logogram share 1%  agreement 0.53  UNIT ACCURACY 0.0% (logograms right 0.0% of tokens)
+  chosen lambda = 1.0 (unit accuracy 1.1%); used unchanged for everything below
+control M (mixed cipher)   score/tok +0.3143  restarts +0.3143 +0.3098 +0.3068 +0.2721  logogram share 87%  agreement 0.32  UNIT ACCURACY 4.5% (logograms right 0.4% of tokens)
+control M shuffled         score/tok +0.1717  restarts +0.1717 +0.1690 +0.1689 +0.1605  logogram share 89%  agreement 0.32
+  gap = +0.1426
+
+====================================================================================================
+RONGORONGO (Horley 125) UNDER THE MIXED MODEL
+====================================================================================================
+rongorongo real            score/tok +0.1893  restarts +0.1893 +0.1532 +0.1436 +0.1245  logogram share 88%  agreement 0.38
+rongorongo shuffled #1     score/tok +0.0904  restarts +0.0904 +0.0781 +0.0755 +0.0746  logogram share 88%  agreement 0.34
+rongorongo shuffled #2     score/tok +0.0921  restarts +0.0921 +0.0900 +0.0897 +0.0718  logogram share 87%  agreement 0.31
+Linear B                   score/tok +0.2530  restarts +0.2530 +0.2262 +0.2211 +0.1913  logogram share 88%  agreement 0.33
+Linear B shuffled          score/tok +0.1458  restarts +0.1458 +0.1396 +0.1395 +0.1063  logogram share 91%  agreement 0.33
+
+  gaps: control M +0.1426 | rongorongo +0.0981 | Linear B +0.1071
+
+====================================================================================================
+WHAT THE FREQUENT GLYPHS AND THE CRESCENT CHOOSE (best mapping; votes over 4 restarts)
+====================================================================================================
+  glyph 200   n=1028  best: korua     votes: korua(3), ietu(1)
+  glyph 6     n=928   best: ietu      votes: ietu(2), ie(1), korua(1)
+  glyph 1     n=783   best: ie        votes: ie(2), era(1), 'atua(1)
+  glyph 10    n=696   best: korua     votes: korua(3), haka(1)
+  glyph 76    n=659   best: take'a    votes: korua(2), take'a(1), 'atua(1)
+  glyph 600   n=623   best: era       votes: era(1), ie(1), korua(1)
+  glyph 4     n=488   best: taŋata    votes: taŋata(1), a(1), korua(1)
+  glyph 381   n=477   best: korua     votes: e(3), korua(1)
+  glyph 3     n=423   best: 'atua     votes: 'atua(1), take'a(1), ietu(1)
+  glyph 2     n=346   best: i         votes: i(1), taŋata(1), ta'ana(1)
+  glyph 430   n=324   best: ta'ana    votes: ote(2), ta'ana(1), taŋata(1)
+  glyph 700   n=324   best: e         votes: ia(2), e(1), to'ona(1)
+  glyph 2a    n=271   best: a         votes: ta'ana(2), a(1), o'ona(1)
+  glyph 8     n=267   best: raua      votes: raua(1), o'ou(1), ai(1)
+  glyph 22    n=245   best: ia        votes: ia(1), haka(1), i(1)
+  glyph 256   n=238   best: haka      votes: haka(1), tetahi(1), ia(1)
+  glyph 9     n=235   best: au        votes: au(1), 'ite(1), me'e(1)
+  glyph 62    n=233   best: ote       votes: ote(1), raua(1), take'a(1)
+  glyph 90    n=226   best: iŋa       votes: iŋa(1), 'ana(1), korua(1)
+  glyph 40    n=211   best: to'ona    votes: to'ona(1), ai(1), take'a(1)
+
+  crescent 040 clamped:
+    040 = po      score/tok +0.0945 (unclamped best +0.1893)
+    040 = mahina  score/tok +0.0198 (unclamped best +0.1893)
+    040 = marama  score/tok +0.1199 (unclamped best +0.1893)
+    040 = hina    score/tok +0.0605 (unclamped best +0.1893)
+    040 = te      score/tok +0.1628 (unclamped best +0.1893)
+    040 = ka      score/tok +0.1269 (unclamped best +0.1893)
