@@ -8,3 +8,4 @@ paper/*.aux
 paper/*.log
 paper/*.xdv
 paper/*.out
+indus/data/

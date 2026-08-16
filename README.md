@@ -41,6 +41,7 @@ python decipher.py            # Appendix A calibrated decipherment  -> results/d
 python mamari.py              # Appendix A Mamari calendar anchor    -> results/mamari_results.txt     ~3 min
 python mixed.py               # Appendix A mixed model (fails control) -> results/mixed_results.txt   ~5 min
 python fingerprint.py          # Appendix A repetition fingerprint    -> results/fingerprint_results.txt
+python indus/indus.py          # Table 4 Indus on the same instrument  -> indus/indus_results.txt   ~2 min
 python robustness.py          # §7 run-length + sample-size checks -> results/robustness_results.txt ~6 min
 ```
 
@@ -62,6 +63,7 @@ Random seeds are fixed. Console headings are partly in Finnish; the files in
 | Barthel → Horley map, tablets JSON | github.com/jgregoriods/rongopy | GPL-3.0 (cloned into `rongopy/`, not vendored) |
 | Māori New Testament | ebible.org `mri_readaloud.zip` | public domain |
 | Linear B corpus | github.com/mwenge/linearb.xyz | see that repository |
+| Mahadevan 1977 concordance + EBUDS | github.com/Hamilchin/indus-cipherable | see that repository |
 | Rapa Nui New Testament | bible.com (Wycliffe) | © Wycliffe Bible Translators; measurement only, never stored here |
 
 ## Method in brief

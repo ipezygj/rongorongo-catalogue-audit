@@ -211,7 +211,27 @@ We do not draw a conclusion about the script from this. It is consistent with ro
 \item \emph{Levels do not travel; differences do.} A normalised conditional entropy of 0.4 or 0.7 for an undeciphered script is a statement about the catalogue and the sample before it is a statement about the script. What can be compared across corpora is the corpus's distance from its own unigram-matched null, and even that only at matched $L$ and $N$.
 \item \emph{Report the catalogue as a parameter.} Any statistic on an undeciphered corpus should be reported as a curve over catalogue size, or at least at two published granularities, with bigram coverage alongside. A single number at a single $L$ invites the reader to compare it with a language plotted at another $L$, and \S\ref{sec:syllabary} shows how misleading that comparison can be.
 \item \emph{The field's catalogue is where the instrument points.} The $\sim$125-sign inventory reached by hand is where structure is maximal and the table still a quarter populated. That is a small vindication of the epigraphers, and a reason not to expect statistics to improve on their judgement about \emph{size}; what statistics can add is a test of \emph{composition}, and there the scribes' substitutions, not conditional entropy, are the evidence.
-\item \emph{The same problem is elsewhere.} The Indus sign lists disagree 1.8-fold (386--694), and \citet{nair2026} shows the corpus ``matching neither cleanly'' of two synthetic baselines at one $L$; Korovina notes the Proto-Indic catalogues are compounded by poor documentation of the seals. The method here---sweep the size, hold the rule, compare to the corpus's own null, put real scripts on the same instrument at matched $N$---transfers without change.
+\item \emph{The same instrument gives the opposite verdict on Indus---which is the point.} We ran the identical code on the Indus corpus (Mahadevan's 1977 concordance as digitised by \citet{hamilchin}: 3\,574 text lines, 13\,372 sign tokens, 417 signs, uncertain readings and lost signs breaking the chain; and the 1\,548-text EBUDS set of \citet{rao2009}, whose normalised bigram figure we reproduce at 0.387). Table~\ref{tab:indus} sets it beside rongorongo. Indus texts are short (mean 3.7 signs) and rigidly positional---the terminal ``jar'' sign 342 is a tenth of all tokens---and the corpus sits 0.217 below its shuffle ($z\approx-169$), \emph{further} than syllabified Rapa Nui, M\=aori or Linear~B at the same $N$ and run lengths; it avoids immediate repetition ($AA$ 0.9, $ABA$ 0.33 of expectation) where rongorongo seeks it. Sweeping catalogue size from 25 to 417 moves $\Hcn$ by 0.384, 1.8 times the signal; but the \emph{published} catalogues disagree only 1.8-fold (Parpola 386, Mahadevan 417, ICIT 702), and across the range we can reach by merging (300--417) the movement is 0.035, a sixth of the signal. Keeping Mahadevan's uncertain readings as their own types (561 vs 417) moves it by 0.02. Mahadevan's numbering, unlike Barthel's, carries no sequential information (merging by it equals random within one standard deviation). So the catalogue problem is script-specific: on Indus the signal is large and the catalogues close, and the instrument is safe; on rongorongo the signal is small and the catalogues span an order of magnitude, and it is not. \citet{nair2026}, working at one ICIT granularity, writes that ``no fully validated cross-concordance exists'' and that his 584 ``should not be directly compared'' with 417 or 386; the numbers above say how much that caution is worth in each direction. What Indus's large signal \emph{means} is a separate question---it is positional structure of very short texts, which \citet{sproat2014} argues non-linguistic systems also show---and we do not enter it here.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+ & rongorongo (CEIPP, Horley) & Indus (Mahadevan 1977) \
+\midrule
+tokens / mean run & 14\,812 / 12.5 & 13\,372 / 3.7 \
+best structural signal ($z$) & $-0.077$ ($-77$) & $-0.217$ ($-169$) \
+vs.\ syllabified Rapa Nui, same $N$, run lengths, $L$ & 2.4--3.6$\times$ less & 0.7$\times$ (more) \
+$AA$ / $ABA$ vs.\ shuffle & 1.6$\times$ / 3.8$\times$ (seeks) & 0.9$\times$ / 0.33$\times$ (avoids) \
+$\Hcn$ span, full size sweep & 0.318 (125--1\,897) = 4.1$\times$ signal & 0.384 (25--417) = 1.8$\times$ \
+$\Hcn$ span, published catalogues & 50--600 ($10\times$) & 386--702 ($1.8\times$); 300--417 measured: 0.16$\times$ signal \
+sweep shape & monotone, no knee & interior optimum $L\approx150$--$200$ \
+shape-ordered merge vs random & worse than random ($-3$ to $-10$ sd) & equal ($-1$ sd) \
+\bottomrule
+\end{tabular}
+\caption{The same instrument on two undeciphered corpora. Code and results: \texttt{indus/}.}
+\label{tab:indus}
+\end{table}
 \end{enumerate}
 
 \section*{Acknowledgements}
@@ -230,10 +250,12 @@ Since the natural objection to \S\ref{sec:syllabary} is that a bare conditional 
 \begin{thebibliography}{99}
 \bibitem[Barthel(1958)]{barthel1958} T.~S. Barthel. \emph{Grundlagen zur Entzifferung der Osterinselschrift}. Cram, de Gruyter, Hamburg, 1958.
 \bibitem[Guy(1990)]{guy1990} J.~B.~M. Guy. On the lunar calendar of tablet Mamari. \emph{Journal de la Soci\'et\'e des Oc\'eanistes}, 91:135--149, 1990.
+\bibitem[Hamilchin(2026)]{hamilchin} Hamilchin. \texttt{indus-cipherable}: digitisation of Mahadevan (1977) and the EBUDS set. \url{https://github.com/Hamilchin/indus-cipherable}, accessed August 2026.
 \bibitem[Horley(2005)]{horley2005} P.~Horley. Allographic variations and statistical analysis of the Rongorongo script. \emph{Rapa Nui Journal}, 19(2):107--116, 2005. \todo{verify pages}
 \bibitem[Horley(2021)]{horley2021} P.~Horley. \emph{Rongorongo}. Rapa Nui Press, Hanga Roa, 2021. (Basic-glyph catalogue of $\sim$130 signs; the Barthel$\to$Horley map used here is the one distributed with \texttt{rongopy}, \url{https://github.com/jgregoriods/rongopy}.)
 \bibitem[Korovina(2026)]{korovina2026} E.~Korovina. A computational evaluation of syllabic hypotheses for Rongorongo: evidence from $n$-gram analysis. In \emph{Proceedings of the Fourth Workshop on Language Technologies for Historical and Ancient Languages (LT4HALA 2026) @ LREC 2026}, pages 177--183, Palma, 2026. \url{https://aclanthology.org/2026.lt4hala-1.16/}
 \bibitem[Miller(1955)]{miller1955} G.~A. Miller. Note on the bias of information estimates. In \emph{Information Theory in Psychology}, pages 95--100. Free Press, 1955.
+\bibitem[Mahadevan(1977)]{mahadevan1977} I.~Mahadevan. \emph{The Indus Script: Texts, Concordance and Tables}. Archaeological Survey of India, New Delhi, 1977.
 \bibitem[Nair(2026)]{nair2026} A.~Nair. How non-linguistic is the Indus sign system? A synthetic-baseline scorecard. arXiv:2604.17828, April 2026.
 \bibitem[Pozdniakov and Pozdniakov(2007)]{pozdniakov2007} K.~Pozdniakov and I.~Pozdniakov. Rapanui writing and the Rapanui language: preliminary results of a statistical analysis. \emph{Forum for Anthropology and Culture}, 3:3--36, 2007.
 \bibitem[Rao et al.(2009)]{rao2009} R.~P.~N. Rao, N.~Yadav, M.~N. Vahia, H.~Joglekar, R.~Adhikari, and I.~Mahadevan. Entropic evidence for linguistic structure in the Indus script. \emph{Science}, 324(5931):1165, 2009.

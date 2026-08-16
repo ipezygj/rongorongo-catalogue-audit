@@ -12,6 +12,8 @@ maintainers publish it.
                              by measure.py / power.py / normalized.py.
   ref/mri/                   Maori New Testament, ebible.org (public domain)
   ref/LinearBInscriptions.js linearb.xyz corpus (github.com/mwenge/linearb.xyz)
+  indus/data/                Mahadevan 1977 concordance + EBUDS (github.com/Hamilchin/
+                             indus-cipherable) for indus/indus.py
   ref/rap/rap_nt.txt         Rapa Nui New Testament, Wycliffe, from bible.com
                              (copyright Wycliffe Bible Translators). Fetched
                              page by page with a delay; used for MEASUREMENT
@@ -75,6 +77,25 @@ def fetch_mri():
     print("mri", len(os.listdir(d)), "files")
 
 
+INDUS_FILES = ["IM77/indus_script_IM77_concordance.txt", "IM77/data_M77.txt", "IM77/IM77_symbol_freq.csv", "ebuds/data_EBUDS_UNIQUE.txt"]
+
+
+def fetch_indus():
+    d = os.path.join(HERE, "indus", "data")
+    os.makedirs(d, exist_ok=True)
+    for f in INDUS_FILES:
+        p = os.path.join(d, os.path.basename(f))
+        if os.path.exists(p):
+            continue
+        for br in ("main", "master"):
+            try:
+                open(p, "wb").write(get("https://raw.githubusercontent.com/Hamilchin/indus-cipherable/%s/data/%s" % (br, f)))
+                print("indus", f)
+                break
+            except Exception:
+                continue
+
+
 def fetch_linb():
     p = os.path.join(HERE, "ref", "LinearBInscriptions.js")
     if os.path.exists(p):
@@ -124,6 +145,7 @@ if __name__ == "__main__":
     fetch_rongopy()
     fetch_mri()
     fetch_linb()
+    fetch_indus()
     if "--no-rap" not in sys.argv:
         fetch_rap()
     print("done")

@@ -1,0 +1,42 @@
+================================================================================================
+INDUS: LUENNAT (log kanta L; signaali = Hcn - sekoitus; peitto)
+================================================================================================
+luenta      runs tokens     L meanrun     cov      Hcn      sig        z
+m77_var     3574  13372   561    3.74   0.97%    0.357   -0.202   -168.3
+m77_base    3574  13372   417    3.74   1.59%    0.377   -0.217   -168.7
+ebuds       1548   7000   377    4.52   1.53%    0.387   -0.164    -97.1
+  m77_var vs m77_base (uncertain readings as own types or not): dHcn -0.021 ; signaali 0.217 ; suhde 0.1x
+  Rao 2009 -tarkistus (EBUDS, log kanta 417): Hcn 0.387
+
+================================================================================================
+KATALOGIKOKO-SWEEP (m77_base): sig / cov   numeric = Mahadevan-numerojarjestys (muoto), freq, random(20)
+================================================================================================
+L     | numeric          | freq             | random          
+25    | -0.127   85.9%   | -0.184   47.7%   | -0.110   93.4% (sd 0.013)  numeric-random: -1.3 sd, freq-random: -5.5 sd
+50    | -0.176   48.9%   | -0.217   33.6%   | -0.168   56.3% (sd 0.010)  numeric-random: -0.8 sd, freq-random: -4.7 sd
+75    | -0.214   28.5%   | -0.241   24.3%   | -0.207   33.3% (sd 0.008)  numeric-random: -1.0 sd, freq-random: -4.5 sd
+100   | -0.221   18.8%   | -0.249   17.3%   | -0.214   21.0% (sd 0.008)  numeric-random: -0.8 sd, freq-random: -4.1 sd
+150   | -0.231    9.8%   | -0.251    9.7%   | -0.222   10.6% (sd 0.009)  numeric-random: -0.9 sd, freq-random: -3.1 sd
+200   | -0.230    6.0%   | -0.243    6.2%   | -0.224    6.3% (sd 0.005)  numeric-random: -1.2 sd, freq-random: -3.7 sd
+300   | -0.222    2.8%   | -0.229    3.0%   | -0.219    2.9% (sd 0.005)  numeric-random: -0.5 sd, freq-random: -1.9 sd
+417   | -0.217    1.6%   | -0.217    1.6%   | -0.217    1.6% (sd 0.000)  numeric-random: -0.1 sd, freq-random: +0.1 sd
+
+================================================================================================
+REFERENSSIT INDUKSEN N=13372 JA JAKSOPITUUKSILLA (ka 3.74); Indus yhdistettyna samaan L:aan
+================================================================================================
+Rapa Nui (55)  L~53  Hcn 0.698  sig -0.160+-0.008  z -117.0  cov 40.7%
+               Indus @L=53  numeric sig -0.197 cov 45.7% | freq sig -0.223 cov 31.7%  -> ratio ref/best 0.7x
+Maori (52)     L~50  Hcn 0.686  sig -0.142+-0.016  z  -93.1  cov 41.1%
+               Indus @L=50  numeric sig -0.176 cov 48.9% | freq sig -0.217 cov 33.6%  -> ratio ref/best 0.7x
+Linear B (95)  L~90  Hcn 0.710  sig -0.108+-0.009  z  -84.8  cov 28.5%
+               Indus @L=90  numeric sig -0.207 cov 22.1% | freq sig -0.247 cov 20.0%  -> ratio ref/best 0.4x
+
+================================================================================================
+TOISTOPROFIILI % tokeneista (suluissa oma sekoitus)
+================================================================================================
+m77_var    AA 1.42 (1.56)  AAA 0.08 (0.07)  ABA 0.34 (1.00)  ABAB 0.00 (0.01) 
+m77_base   AA 1.46 (1.68)  AAA 0.08 (0.07)  ABA 0.34 (1.04)  ABAB 0.00 (0.01) 
+ebuds      AA 1.51 (1.72)  AAA 0.13 (0.07)  ABA 0.31 (1.18)  ABAB 0.00 (0.01) 
+Rapa Nui   AA 1.54 (2.74)  AAA 0.03 (0.10)  ABA 2.74 (1.77)  ABAB 0.30 (0.04) 
+Maori (52  AA 1.78 (3.77)  AAA 0.01 (0.22)  ABA 3.42 (2.24)  ABAB 0.31 (0.06) 
+Linear B   AA 1.21 (1.76)  AAA 0.08 (0.05)  ABA 1.08 (1.13)  ABAB 0.04 (0.02) 
