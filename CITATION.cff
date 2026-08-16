@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the paper draft and this repository."
+title: "The Catalogue Is the Instrument: how the choice of sign inventory moves the statistics of an undeciphered script (code and results)"
+type: software
+version: "0.1"
+date-released: "2026-08-16"
+authors:
+  - family-names: "Väätäinen"
+    given-names: "Ilpo"
+    email: "ipezygj2@gmail.com"
+repository-code: "https://github.com/ipezygj/rongorongo-catalogue-audit"
+license: MIT
+keywords:
+  - rongorongo
+  - undeciphered scripts
+  - conditional entropy
+  - transliteration
+  - sign catalogue
+  - Linear B
+  - Rapa Nui
+abstract: >
+  Scripts and results measuring how much the choice of sign catalogue moves
+  the length-normalised conditional entropy of the rongorongo corpus (CEIPP,
+  25 objects), a sweep over catalogue sizes, composition tests against the
+  scribes' own substitutions, syllabary references (Rapa Nui, Maori, Linear B)
+  at matched size and length, and transliteration-noise and Miller-Madow
+  checks. Standard-library Python; a fetch script downloads every input.
