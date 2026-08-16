@@ -38,6 +38,7 @@ python parallels3.py          # §6 scribes' substitutions table  -> results/par
 python syllabary_ref.py       # Table 3  (syllabary references)  -> results/syllabary_ref_results.txt ~3 min
 python noise.py               # §8 transliteration-error test    -> results/noise_results.txt
 python decipher.py            # Appendix A calibrated decipherment  -> results/decipher_results.txt   ~3 min
+python mamari.py              # Appendix A Mamari calendar anchor    -> results/mamari_results.txt     ~3 min
 python robustness.py          # §7 run-length + sample-size checks -> results/robustness_results.txt ~6 min
 ```
 
