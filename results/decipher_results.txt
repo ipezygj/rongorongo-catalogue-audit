@@ -1,0 +1,61 @@
+Rapa Nui LM: 55 syllables, 246619 train tokens; held-out 76133 tokens
+rongorongo (Horley): 15415 tokens, 125 glyph types, 1771 runs
+ceiling: held-out Rapa Nui under the TRUE mapping: LL/token -3.2772
+
+====================================================================================================
+CALIBRATION
+====================================================================================================
+control A (1:1, 55)    LL/token -3.2772  restarts -3.2772 -3.2772 -3.6792 -3.9483 -3.9789 -4.0059  agreement(token-weighted) 0.45  TOKEN ACCURACY 100.0%
+control B (homoph., 99) LL/token -4.5720  restarts -4.5720 -4.6471 -4.6534 -4.6674 -4.6862 -4.6920  agreement(token-weighted) 0.31  TOKEN ACCURACY 36.8%
+control C (B shuffled) LL/token -4.9198  restarts -4.9198 -4.9255 -4.9268 -4.9304 -4.9341 -4.9361  agreement(token-weighted) 0.34
+
+====================================================================================================
+RONGORONGO (Horley 125 glyphs -> 55 Rapa Nui syllables)
+====================================================================================================
+rongorongo real        LL/token -4.4632  restarts -4.4632 -4.4739 -4.4816 -4.4918 -4.5220 -4.5379  agreement(token-weighted) 0.40
+rongorongo shuffled #1 LL/token -4.6358  restarts -4.6358 -4.6425 -4.6429 -4.6431 -4.6520 -4.6616  agreement(token-weighted) 0.41
+rongorongo shuffled #2 LL/token -4.6208  restarts -4.6208 -4.6303 -4.6327 -4.6407 -4.6455 -4.6625  agreement(token-weighted) 0.40
+rongorongo shuffled #3 LL/token -4.6324  restarts -4.6324 -4.6383 -4.6457 -4.6474 -4.6694 -4.6947  agreement(token-weighted) 0.43
+
+real - shuffled(mean) = +0.1664 LL/token  (null sd 0.0079, z = 21.2)
+
+====================================================================================================
+STRUCTURED NON-RAPA-NUI CONTROLS THROUGH THE SAME PIPE (N and run lengths matched)
+====================================================================================================
+Linear B (95 signs)    LL/token -4.3501  restarts -4.3501 -4.3533 -4.3638 -4.3685 -4.3879 -4.3986  agreement(token-weighted) 0.32
+  its shuffle          LL/token -4.5044  restarts -4.5044 -4.5114 -4.5124 -4.5223 -4.5323 -4.5338  agreement(token-weighted) 0.38
+  gap real - shuffle = +0.1543
+Maori syllables (52)   LL/token -3.7300  restarts -3.7300 -3.7635 -3.7706 -3.7840 -3.7909 -3.8618  agreement(token-weighted) 0.41
+  its shuffle          LL/token -4.0010  restarts -4.0010 -4.0023 -4.0053 -4.0140 -4.0140 -4.0308  agreement(token-weighted) 0.49
+  gap real - shuffle = +0.2710
+  rongorongo gap      = +0.1664 ; control B (true homophonic Rapa Nui) gap = +0.3478
+for scale: control B recovered 37% of tokens with LL/token -4.5720 vs its shuffle -4.9198 (gap +0.3478); ceiling -3.2772
+
+====================================================================================================
+BEST MAPPING, 25 MOST FREQUENT GLYPHS (agreement = share of restarts giving this syllable)
+====================================================================================================
+  glyph 200    n=1028  -> i     3/6   alternatives: he(1), o(1)
+  glyph 6      n=928   -> a     3/6   alternatives: ko(1), u(1)
+  glyph 1      n=783   -> te    3/6   alternatives: 'e(1), i(1)
+  glyph 10     n=696   -> e     3/6   alternatives: 'a(2), tu(1)
+  glyph 76     n=659   -> 'a    3/6   alternatives: i(1), he(1)
+  glyph 600    n=623   -> i     3/6   alternatives: ra(1), mo(1)
+  glyph 4      n=488   -> ra    3/6   alternatives: e(1), a(1)
+  glyph 381    n=477   -> 'i    1/6   alternatives: ta(1), i(1)
+  glyph 3      n=423   -> o     3/6   alternatives: e(1), tu(1)
+  glyph 2      n=346   -> he    2/6   alternatives: 'a(1), ha(1)
+  glyph 430    n=324   -> ta    3/6   alternatives: a(1), ra(1)
+  glyph 700    n=324   -> ko    2/6   alternatives: i(2), a(1)
+  glyph 2a     n=271   -> a     1/6   alternatives: tu(1), ro(1)
+  glyph 8      n=267   -> tu    2/6   alternatives: i(2), e(1)
+  glyph 22     n=245   -> 'e    3/6   alternatives: ma(1), mo(1)
+  glyph 256    n=238   -> ka    2/6   alternatives: i(1), te(1)
+  glyph 9      n=235   -> ki    2/6   alternatives: ta(1), te(1)
+  glyph 62     n=233   -> ka    2/6   alternatives: ŋa(1), ra(1)
+  glyph 90     n=226   -> ha    2/6   alternatives: ko(1), pe(1)
+  glyph 40     n=211   -> a     3/6   alternatives: ki(1), pa(1)
+  glyph 5      n=206   -> ta    1/6   alternatives: te(1), 'e(1)
+  glyph 61     n=203   -> e     3/6   alternatives: ma(1), ro(1)
+  glyph 66     n=200   -> 'e    1/6   alternatives: i(1), ka(1)
+  glyph 7      n=189   -> 'e    1/6   alternatives: 'i(1), a(1)
+  glyph 69     n=182   -> mo    2/6   alternatives: u(1), te(1)

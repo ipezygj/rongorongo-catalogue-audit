@@ -37,6 +37,7 @@ python composition2.py        # §6 core-held composition (0.004) -> results/com
 python parallels3.py          # §6 scribes' substitutions table  -> results/parallels3_results.txt
 python syllabary_ref.py       # Table 3  (syllabary references)  -> results/syllabary_ref_results.txt ~3 min
 python noise.py               # §8 transliteration-error test    -> results/noise_results.txt
+python decipher.py            # Appendix A calibrated decipherment  -> results/decipher_results.txt   ~3 min
 python robustness.py          # §7 run-length + sample-size checks -> results/robustness_results.txt ~6 min
 ```
 
