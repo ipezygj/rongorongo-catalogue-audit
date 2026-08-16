@@ -1,0 +1,29 @@
+CEIPP base reading: L = 633, tokens = 14812
+  H_cond normalised = 0.522
+  core kept distinct: 50 signs, 64.4 % of tokens
+  tail to be grouped: 583 signs
+
+==========================================================================
+DEFENDABLE SCHEMES — same corpus, same core, different tail grouping
+==========================================================================
+scheme               L   H_cond norm
+barthel-tens       129         0.750
+hundreds            82         0.826
+frequency           62         0.761
+
+==========================================================================
+RANDOM REGROUPING NULL — 200 draws at each scheme's own L
+==========================================================================
+target L    random mean       sd      min      max
+129               0.757   0.0009    0.755    0.760
+82                0.839   0.0014    0.836    0.844
+62                0.856   0.0013    0.852    0.859
+
+==========================================================================
+VERDICT
+==========================================================================
+  spread across defensible schemes (L 	 62-129)   0.076
+  spread from changing L instead (125 vs 633 vs 1897)  0.318
+  barthel-tens   h=0.750  random 0.757+-0.0009  z=   -8.1  OUTSIDE random range
+  hundreds       h=0.826  random 0.839+-0.0014  z=   -9.9  OUTSIDE random range
+  frequency      h=0.761  random 0.856+-0.0013  z=  -74.4  OUTSIDE random range

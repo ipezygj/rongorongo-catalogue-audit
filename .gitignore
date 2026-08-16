@@ -1,0 +1,10 @@
+# fetched data (see fetch_data.py) -- never committed
+ceipp/
+rongopy/
+ref/
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.xdv
+paper/*.out

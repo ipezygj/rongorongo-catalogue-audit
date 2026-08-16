@@ -1,0 +1,25 @@
+==============================================================================
+1) SEKOITUSNOLLA — H_cond kun rakennetta EI ole
+==============================================================================
+enkoodaus     oikea  nolla ka.  nolla sd      ero        z
+barthel       2.459      2.720    0.0037   -0.261    -70.7
+clean         4.752      5.281    0.0079   -0.530    -67.3
+simple        4.503      4.977    0.0049   -0.474    -97.0
+
+==============================================================================
+2) OPPIMISKAYRA — onko estimaattori konvergoitunut 100%:ssa
+==============================================================================
+enkoodaus        25%       50%       75%      100%   75->100
+barthel        1.535     1.963     2.243     2.459     0.216
+clean          3.669     4.258     4.559     4.752     0.192
+simple         4.048     4.315     4.436     4.503     0.067
+
+==============================================================================
+3) VERTAILU — rakenteen signaali vs transkription aiheuttama hajonta
+==============================================================================
+  suurin todellinen rakennesignaali (oikea - nolla): -0.261 bittia
+  pienin todellinen rakennesignaali                : -0.530 bittia
+  H_cond:n hajonta pelkasta transkriptiosta        : 2.292 bittia
+
+  => transkription valinta siirtaa mittaria ENEMMAN kuin
+     mitattava rakenne itse.

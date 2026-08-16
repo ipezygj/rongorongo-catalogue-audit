@@ -1,0 +1,13 @@
+kaikki tapahtumat 266  ->  reilu joukko 139 (90 eri paria)
+
+======================================================================
+SAMA TAPAHTUMAJOUKKO KAIKILLE, L = 125
+======================================================================
+Horley (julkaistu)        56/139      40.3%
+numeric                   25/139      18.0%
+frequency                  1/139       0.7%
+family                    14/139      10.1%
+satunnainen                            0.6%  +- 1.1
+
+  Horley z = 35.5
+  Horley / paras mekaaninen = 2.2x

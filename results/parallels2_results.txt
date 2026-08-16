@@ -1,0 +1,25 @@
+substitution events: 266 over 164 distinct pairs
+
+==========================================================================
+ABSORPTION AT L = 125, SAME EVENTS THROUGHOUT
+==========================================================================
+catalogue                 absorbed   of events     rate
+Horley (published)              56         139    40.3%
+numeric                         37         266    13.9%
+frequency                        4         266     1.5%
+family                          18         266     6.8%
+random                                             0.7%   +- 0.9
+
+==========================================================================
+VERDICT
+==========================================================================
+  Horley             40.3 %   z =   45.1
+  numeric            13.9 %   z =   15.0
+  frequency           1.5 %   z =    0.9
+  family              6.8 %   z =    6.9
+
+  Horley / best mechanical rule = 2.9x
+
+  Composition moved conditional entropy by 1 % of the length effect.
+  Against the scribes' own substitutions it is the whole effect:
+  size alone buys nothing, and the published grouping is doing the work.

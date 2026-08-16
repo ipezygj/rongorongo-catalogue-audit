@@ -1,0 +1,226 @@
+% The Catalogue Is the Instrument: how the choice of sign inventory moves
+% the statistics of an undeciphered script (rongorongo).
+% Draft 0.1, 2026-08-16.  Single author.  Target: arXiv cs.CL preprint.
+% Build: pdflatex paper && bibtex paper && pdflatex paper && pdflatex paper
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\usepackage{xcolor}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\Hc}{H_{\mathrm{c}}}
+\newcommand{\Hcn}{\hat H_{\mathrm{c}}}
+
+\title{The Catalogue Is the Instrument:\\
+\large How the choice of sign inventory moves the statistics of an undeciphered script}
+\author{Ilpo V\"a\"at\"ainen\thanks{Independent researcher, Helsinki. \texttt{ipezygj2@gmail.com}. Code, results and this draft: \url{https://github.com/ipezygj/rongorongo-catalogue-audit}.}}
+\date{Draft of 16 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Statistical arguments about undeciphered scripts---whether a sign system ``behaves like language''---are computed on a transliteration, and a transliteration presupposes a catalogue of signs. For rongorongo the published catalogues disagree by an order of magnitude (about 50 to about 600 basic signs). \citet{pozdniakov2007} said in 2007 that statistics ``will differ markedly depending upon the inventory of glyphs chosen''; the point has not, to our knowledge, been quantified. We quantify it on the CEIPP corpus (25 objects, 14\,812 coded glyphs) using the normalised conditional entropy of \citet{rao2010reply}, on whose $[0,1]$ scale the language-versus-non-language comparisons are drawn. Three published readings of the \emph{same} inscriptions move the statistic by 0.318 of that scale; the corpus's distance from its own unigram-matched shuffle---the structure the statistic is meant to detect---is 0.077. The choice of catalogue therefore moves the instrument about four times further than the signal (3.7$\times$ after Miller--Madow correction). A sweep over catalogue sizes from 25 to 633 under four merge rules shows the effect is mostly \emph{size}: signal grows monotonically with the inventory, coverage of the bigram table collapses beyond about 100--125 signs, and the field's own $\sim$125-sign catalogue sits where the two criteria cross. Composition matters at fixed size, but differently for different questions: it moves conditional entropy by 0.004 when the frequent core is held fixed and by 0.06--0.14 when the merge rule may touch it, while against the scribes' own substitutions in parallel passages the published catalogue absorbs 40\,\% of variants where the best mechanical rule of the same size absorbs 18\,\% and chance 0.6\,\%. Finally, we place three real syllabaries---Rapa Nui and M\=aori text syllabified, and Linear~B---on the same instrument at matched size and length. At 50--55 signs, rongorongo can be merged so that its normalised conditional entropy is indistinguishable from syllabified Rapa Nui (0.707 vs 0.695), confirming that a small catalogue produces the syllabary's \emph{number}; but its distance from its own shuffle is 2.5--10 times smaller than that of every syllabary tested, under every catalogue and every rule. Corrupting 5\,\% of glyph tokens moves the statistic by 0.011, so transliteration error cannot account for either gap. We conclude that levels of these statistics are properties of the catalogue and the sample; only differences---between readings, and between a corpus and its own null---travel.
+\end{abstract}
+
+\section{Introduction}
+
+Every quantitative claim about an undeciphered script rests on a transliteration, and every transliteration rests on a prior decision about what counts as one sign. For rongorongo, the script of Easter Island, that decision has been made several times with very different results. \citet{barthel1958} catalogued about 600 glyphs; the CEIPP transliteration inherits that inventory and adds variant letters; \citet{horley2021} reduces it to about 125 basic glyphs by decomposing ligatures and merging allographs; \citet{pozdniakov2007} argue for a core of 52. These are not competing readings of a few doubtful glyphs. They are different answers to the question of how many symbols the script has, and the answers span a factor of ten.
+
+The statistics used to argue that a sign system is, or is not, linguistic---conditional entropy \citep{rao2009,rao2010reply}, its critics \citep{sproat2010,sproat2014}, $n$-gram and Zipfian profiles, hapax ratios---are all computed on the transliterated sign stream. \citet{pozdniakov2007} state the consequence plainly: ``it is impossible to make use of statistical data, for clearly the data will differ markedly depending upon the inventory of glyphs chosen.'' The remark is qualitative, and it appears in a paper whose response to the problem was to build a better catalogue rather than to measure how much the choice moves the numbers. \citet{korovina2026} runs the same $n$-gram method on two transliterations of the same inscriptions and obtains different verdicts, but treats the gap as a caveat rather than as the object of study.
+
+This note treats the gap as the object of study. The question is not whether rongorongo is writing. It is: \emph{when a statistic is computed on an undeciphered corpus, how much of the number is the corpus and how much is the catalogue?} We answer it on rongorongo because the catalogue disagreement there is unusually large and the corpus is unusually well digitised, and we answer it in the units in which the debate is now conducted---the length-normalised conditional entropy of \citet{rao2010reply}---so that the movement can be read directly against the distances that separate languages from DNA, music and code on their plot.
+
+Our contribution is a set of measurements, made on public data with public code, and a reading of them that we have tried to keep within what the measurements support:
+\begin{enumerate}
+\item The catalogue moves the statistic about four times further than the structure it detects (\S\ref{sec:ladder}).
+\item Most of that movement is catalogue \emph{size}, not composition; there is no preferred size below the published $\sim$125, and no ``knee'' at the syllable count (\S\ref{sec:sweep}).
+\item Composition matters, but for a different question: the published catalogue encodes graphic knowledge that no mechanical rule of the same size recovers, visible against the scribes' own substitutions rather than in conditional entropy (\S\ref{sec:composition}).
+\item A small catalogue makes rongorongo \emph{look} syllabic on the raw axis; on the null-relative axis it has several times less sequential structure than real syllabaries at matched size and length (\S\ref{sec:syllabary}).
+\item Transliteration error, sample size and estimator bias are all real, and all an order of magnitude smaller than the catalogue effect (\S\ref{sec:noise}).
+\end{enumerate}
+
+\section{Data}
+
+\paragraph{Corpus.} The CEIPP transliteration as maintained and published in XML by Philip Spaelti\footnote{\url{https://kohaumotu.org/Rongorongo/xml/}}, one file per object, one \texttt{<glyph>} element per coded glyph with a Barthel/CEIPP code (e.g.\ \texttt{022bfy}) and a link marker. 25 objects. Line breaks, lacunae, illegible glyphs and end-of-text markers cut the sign chain: a bigram is counted only when the object attests the adjacency. Under the numeric reading (variant letters stripped, ligatures split) the corpus has 14\,812 tokens over 633 types in 1\,182 uninterrupted runs.
+
+We verified against the fixed-column sample CEIPP publishes on its own site that the widely used \texttt{rongopy} tablet files are this transliteration reformatted (15/15 glyphs of the published sample match). Provenance therefore reduces to CEIPP; the ``readings'' below are published \emph{granularities} of one transliteration, not independent editions. That is a weaker comparison than three independent editions would be, and it is the one available.
+
+\paragraph{Readings.} Three levels that correspond to published positions on what counts as one sign:
+\begin{itemize}
+\item \textbf{full}: CEIPP codes with variant letters, ligatures split. $L=1\,897$ types.
+\item \textbf{base}: numeric Barthel code only. $L=633$.
+\item \textbf{horley}: Barthel $\to$ Horley basic-glyph map as shipped with \texttt{rongopy} (638 keys $\to$ 126 basic glyphs, 372 keys decomposing a ligature into parts). Codes the map does not reach, or sends to ``?'', break the chain like a lacuna. Coverage 91.2\,\% of coded glyphs. $L=125$, 15\,415 tokens (decomposition increases the count).
+\end{itemize}
+
+\paragraph{Reference syllabaries.} (\S\ref{sec:syllabary}.) Rapa Nui: the New Testament (gospels and Acts, 117 chapters, Wycliffe translation), syllabified mechanically as (C)V with C $\in$ \{p t k \textquotesingle{} m n \ng{} v r h\}, V $\in$ \{a e i o u\}, long vowels either kept ($L=105$) or folded ($L=55$); 322\,752 syllables. M\=aori: Paipera Tapu New Testament (ebible.org), same procedure, C $\in$ \{h k m n ng p r t w wh\}, $L=98$ / $52$; 460\,155 syllables. Linear~B: the \texttt{linearb.xyz} corpus, 5\,889 inscriptions, syllabograms only, word dividers dropped (rongorongo has none), ideograms and numerals cutting the chain; 47\,364 signs, $L=95$. All three are measured on twenty random contiguous windows of exactly the rongorongo token count so that coverage and null distance are compared at matched $N$. The M\=aori text is public domain; the Linear~B corpus is taken from its public repository; the Rapa Nui text is copyright Wycliffe Bible Translators and is used for measurement only, fetched by the reader from its publisher and never redistributed.
+
+\section{Method}
+
+\paragraph{Statistic.} For a sign stream with unigram counts $c_i$ and bigram counts $c_{ij}$ over $L$ observed types, the plug-in conditional entropy is $\Hc = H(\text{bigram}) - H(\text{unigram})$ in bits. Following \citet{rao2010reply}, who take the logarithm to base $L$ ``to compare sequences over different alphabet sizes,'' we report $\Hcn = \Hc / \log_2 L$, which lies in $[0,1]$ between their Min~Ent and Max~Ent references. Every distinction their plot draws lives on this axis. Raw bits would make catalogue choice look damaging for free, because changing $L$ changes the ceiling; the normalisation is what divides that out, and the question is whether the movement survives it.
+
+\paragraph{Null.} A unigram-matched shuffle: tokens permuted across the corpus, run lengths preserved, so the unigram distribution and $L$ are identical and all sequential structure is destroyed. 200 permutations per reading (100 in the sweep, 30--50 in the reference runs). The \emph{signal} is $\Hcn(\text{real}) - \overline{\Hcn(\text{null})}$; $z$ is that difference over the null standard deviation. Negative signal means the corpus is more predictable than its shuffle.
+
+\paragraph{Coverage.} The fraction of the $L \times L$ bigram table with at least one observation. It says whether $\Hc$ is estimable at all at that $L$ and $N$.
+
+\paragraph{Merge rules (sweep).} Starting from the 633 numeric codes, a catalogue of size $L$ is produced by one of: \emph{numeric}, sort by Barthel number and cut into $L$ contiguous classes of equal type count (Barthel's numbering follows shape, so this is the cheapest shape-based rule); \emph{horley}, the published 125 merged further downward by the same numeric cut; \emph{freq}, keep the $L-1$ most frequent codes and pool the rest; \emph{random}, $L$ classes of equal type count drawn at random (20 draws), which is what a catalogue of size $L$ with no information in its composition does. Everything above the random line at a given $L$ is what composition adds; the line itself is what size does.
+
+\paragraph{Code.} All scripts are standard-library Python and are released at \url{https://github.com/ipezygj/rongorongo-catalogue-audit}, with a fetch script for every input (nothing third-party is redistributed). Random seeds are fixed; every number below is reproducible from the public XML.
+
+\section{The catalogue moves the instrument four times further than the signal}
+\label{sec:ladder}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+reading & $L$ & tokens & coverage & $\Hcn$ & signal & $z$ \\
+\midrule
+full (CEIPP + variants) & 1\,897 & 14\,812 & 0.25\,\% & 0.385 & $-0.046$ & $-70$ \\
+base (CEIPP numeric)    &   633 & 14\,812 & 1.74\,\% & 0.522 & $-0.055$ & $-68$ \\
+horley (published $\sim$125) & 125 & 15\,415 & 23.9\,\% & 0.703 & $-0.077$ & $-67$ \\
+\midrule
+\multicolumn{4}{l}{spread across readings} & 0.318 & & \\
+\multicolumn{4}{l}{largest structural signal} & & 0.077 & \\
+\multicolumn{4}{l}{ratio} & \multicolumn{2}{c}{4.1$\times$} & \\
+\bottomrule
+\end{tabular}
+\caption{Three published granularities of the same 25 inscriptions on the Rao--Sproat scale. Miller--Madow correction applied to real and null alike gives spread 0.309, signal 0.083, ratio 3.7$\times$, and does not reorder the readings.}
+\label{tab:ladder}
+\end{table}
+
+Table~\ref{tab:ladder} is the headline. Structure is present under every reading: the corpus is 59--97 standard deviations more predictable than its shuffle. What does not survive the change of reading is any statement about \emph{how much}. Moving from the variant-level reading to Horley's moves $\Hcn$ by 0.318---nearly a third of the whole axis on which \citet{rao2010reply} separate languages from non-linguistic systems---while the signal itself is 0.077.
+
+The sharpest single observation is in the coverage column. Under the variant reading 0.25\,\% of the bigram table is observed and the script looks highly structured (0.385); under Horley's 23.9\,\% is observed and it looks much closer to Max~Ent (0.703). \emph{The more estimable the statistic, the less language-like the script appears.} High ``structure'' under fine-grained readings is, at least in part, sparse-table bias, not a property of the writing.
+
+\paragraph{Sample size.} Rao et al.'s Indus corpus has about 7\,000 sign occurrences over 417 types, 16.8 tokens per type; the CEIPP numeric reading has 23.4. Rao et al.\ note that ``beyond $N=6$ the entropy estimates become less reliable due to the small sample size''; on random sub-samples of the present corpus, $\Hc$ is still rising at 100\,\% of the data, and under the variant reading the last quarter of the corpus contributes 83\,\% of the whole structural signal. The estimate has not converged at $N=2$.
+
+\paragraph{The denominator is itself contested.} \citet{rao2010reply} normalise with $L=417$ (Mahadevan). Parpola gives 386, ICIT 584, Wells 694. Changing only the denominator, corpus untouched, moves a value near 0.5 by about 0.045---the size of the entire structural signal we measure in rongorongo---and that is a lower bound, since a change of sign list changes the string as well.
+
+\section{Size, not composition: a sweep over catalogue length}
+\label{sec:sweep}
+
+Korovina (p.c., 2026) named two explanations for the gap that she could not separate: that a longer catalogue simply performs worse because its length exceeds what the corpus can populate, or that two reasonable catalogues of the same size can give substantively different answers---``two very different things from a theoretical standpoint.'' The sweep is designed to separate them.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{r rr rr rr rr}
+\toprule
+ & \multicolumn{2}{c}{numeric} & \multicolumn{2}{c}{horley} & \multicolumn{2}{c}{freq} & \multicolumn{2}{c}{random} \\
+$L$ & signal & cov & signal & cov & signal & cov & signal & cov \\
+\midrule
+25  & $-0.010$ & 87\,\% & $-0.025$ & 94\,\% & $-0.029$ & 85\,\% & $-0.016$ & 100\,\% \\
+50  & $-0.016$ & 57\,\% & $-0.045$ & 66\,\% & $-0.041$ & 63\,\% & $-0.030$ & 83\,\% \\
+75  & $-0.022$ & 40\,\% & $-0.060$ & 45\,\% & $-0.050$ & 46\,\% & $-0.039$ & 59\,\% \\
+100 & $-0.024$ & 28\,\% & $-0.068$ & 31\,\% & $-0.058$ & 34\,\% & $-0.045$ & 41\,\% \\
+125 & $-0.030$ & 21\,\% & $\mathbf{-0.077}$ & 24\,\% & $-0.061$ & 26\,\% & $-0.049$ & 31\,\% \\
+200 & $-0.036$ & 11\,\% & --- & --- & $-0.064$ & 14\,\% & $-0.054$ & 14\,\% \\
+300 & $-0.042$ & 6\,\% & --- & --- & $-0.062$ & 7\,\% & $-0.055$ & 7\,\% \\
+633 & $-0.055$ & 1.7\,\% & --- & --- & $-0.055$ & 1.7\,\% & $-0.055$ & 1.7\,\% \\
+\bottomrule
+\end{tabular}
+\caption{Structural signal and bigram coverage as a function of catalogue size, four merge rules, same corpus. Full grid (15 sizes, $z$, $\Hcn$) in the supplement.}
+\label{tab:sweep}
+\end{table}
+
+Three things follow from Table~\ref{tab:sweep}.
+
+\emph{There is no knee at the syllable count.} Under every rule the distance from the shuffle grows monotonically with $L$; the only interior maximum anywhere in the grid is Horley's published 125 ($-0.077$, $z\approx-77$), and merging Horley downward loses signal steadily ($-0.045$ at 50, $-0.025$ at 25). Coverage, going the other way, falls below a quarter of the table once $L$ passes 100--125. If ``best'' means \emph{most structure visible while the statistic is still estimable}, the two criteria cross at roughly 100--125---where the field's own catalogue sits---and not at 50.
+
+\emph{Size dominates.} At $L=633$ every rule is the identity and the four columns coincide; as $L$ shrinks, all four lose signal together, and the spread between rules at any fixed $L$ (0.02--0.03) is smaller than the movement along $L$ (0.05--0.06 between 25 and 633 for the same rule). Korovina's first hypothesis is the larger effect.
+
+\emph{But composition is not zero, and its sign is informative.} At every $L\le125$ the order is horley $>$ freq $>$ random $>$ numeric. Horley beats random partitions of the same size by 5--11 random-draw standard deviations; frequency by 4--7; and the numeric rule---adjacent Barthel numbers merged---is \emph{worse than random} by 3--10. Barthel's numbering follows shape, so this says that shape-adjacent signs behave differently in sequence, and merging them destroys structure that a random merge preserves by accident. \S\ref{sec:composition} pursues this.
+
+\section{Composition: what the published catalogue knows}
+\label{sec:composition}
+
+\paragraph{At fixed $L$, holding the core.} Korovina describes the field as agreeing on some 40--50 frequent signs and disagreeing about the rest. Holding the 50 most frequent numeric codes distinct (64.4\,\% of tokens) and cutting the 583-sign tail into 75 classes by three defensible rules (numeric adjacency, frequency, leading-digit family) at exactly $L=125$ gives $\Hcn$ of 0.758, 0.754 and 0.756; 300 arbitrary regroupings of the same tail give $0.7632\pm0.0008$. Composition alone, core held, moves the statistic by 0.004---one per cent of the length effect---though all three defensible rules sit below the arbitrary ones by $z=-6.6$ to $-10.9$, so the merge rule carries information.
+
+\paragraph{At fixed $L$, rule free to touch the core.} When the rule may merge frequent signs (\S\ref{sec:sweep}), the spread across rules at fixed $L$ is 0.06 at 125 and 0.14 at 50. Both numbers stand; they answer different questions. The first says that if researchers agree on the frequent core, their disagreement about the tail barely registers in conditional entropy. The second says that if they do not, it does.
+
+\paragraph{Against the scribes.} Conditional entropy is one question to ask of a catalogue. Another is whether it groups the signs the scribes themselves interchanged. Where the same passage recurs on different objects with a one-sign difference, the two signs at that position are candidates for allographs---the evidence Pozdniakov used by hand in 1996. Seed-and-extend alignment (exact 5-mer seeds between lines on different objects, then alignment, every one-for-one mismatch recorded) yields 119 cross-object passage pairs, 164 distinct substitution pairs, 266 events; the frequent ones---(002,021), (400,600), (045,046), (254,256), (093,095)---are numerically adjacent, which given Barthel's shape ordering is independent evidence that the alignments find variants rather than noise. Scoring catalogues on how often they place both members of a substitution in one class, all at $L=125$, on the same 139 events the Horley map can classify:
+
+\begin{center}\small
+\begin{tabular}{lr}
+\toprule
+Horley (published) & 40.3\,\% \\
+numeric proximity & 18.0\,\% \\
+leading-digit family & 10.1\,\% \\
+frequency & 0.7\,\% \\
+random, 300 draws & $0.6 \pm 1.1$\,\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Horley sits 35 standard deviations above chance and 2.2 times the best mechanical rule of the same size (a first pass that scored Horley on 139 events and the mechanical rules on 266 gave 2.9$\times$; the common set is the fair one). Composition, then, is the \emph{whole} effect where the scribes are the witnesses, and one per cent of it where conditional entropy is. The published catalogue encodes graphic judgement that no mechanical rule recovers; it simply does not surface in the statistic the debate has used. Limits: substitution pairs are candidates, not established allographs (two different words can differ by one sign); seeds require an exact match, so only variation in otherwise identical context is visible; 60\,\% of substitutions are not absorbed by Horley and we cannot tell whether the catalogue is still too fine or those passages differ in wording; and we find 119 cross-object pairs where Horley catalogued 146 passages by hand---the right order, not the same number.
+
+\section{Does a small catalogue make rongorongo look syllabic?}
+\label{sec:syllabary}
+
+Korovina (p.c.) predicted that reducing the catalogue to about 50---the number of Rapa Nui syllables---``will inevitably get more similarity to syllables than to anything else,'' as a property of the material rather than a bug. Testing this needs syllabaries on the same instrument, at the same $L$ and the same $N$. Table~\ref{tab:syll} gives them.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{l r rrr l rr}
+\toprule
+ & & \multicolumn{3}{c}{reference ($N=14\,812$ windows)} & & \multicolumn{2}{c}{rongorongo at same $L$} \\
+reference & $L$ & $\Hcn$ & signal & cov & & $\Hcn$ range & signal range \\
+\midrule
+M\=aori, length folded   &  52 & 0.684 & $-0.151$ & 44\,\% & & 0.70--0.88 & $-0.015$ to $-0.046$ \\
+Rapa Nui, length folded  &  55 & 0.695 & $-0.170$ & 44\,\% & & 0.71--0.87 & $-0.017$ to $-0.047$ \\
+Linear B                 &  95 & 0.668 & $-0.156$ & 26\,\% & & 0.71--0.79 & $-0.026$ to $-0.063$ \\
+M\=aori, length kept     &  98 & 0.598 & $-0.177$ & 21\,\% & & 0.70--0.79 & $-0.024$ to $-0.065$ \\
+Rapa Nui, length kept    & 105 & 0.598 & $-0.187$ & 19\,\% & & 0.70--0.78 & $-0.026$ to $-0.068$ \\
+\bottomrule
+\end{tabular}
+\caption{Real syllabaries versus rongorongo merged to exactly the same $L$ under the four rules of \S\ref{sec:sweep}. Reference values are means over 20 windows of the rongorongo token count (s.d.\ of signal 0.007--0.012). Rongorongo ranges span numeric, horley, freq and random; the freq rule gives 0.707 at $L=55$.}
+\label{tab:syll}
+\end{table}
+
+The prediction is right on the axis the Rao--Sproat exchange is conducted on. At $L=55$ the frequency-merged rongorongo comes out at 0.707 and syllabified Rapa Nui at 0.695: indistinguishable. Under the other rules the same corpus lands anywhere from 0.73 to 0.87. So at fifty the number can sit on the syllabary value or well away from it, and which happens depends only on which fifty. That is the ``property of the material'' Korovina describes, with a figure attached, and it is a second way of saying what \S\ref{sec:ladder} said: the level of $\Hcn$ is not a property of the corpus.
+
+The distance from the shuffle separates them. Every real syllabary---Rapa Nui, M\=aori, Linear~B---sits 0.15 to 0.19 below its own shuffle at matched $L$ and $N$. Rongorongo, under every catalogue from 52 to 105 and every rule, sits 0.02 to 0.07 below its own; and its bigram table is fuller (51--78\,\% of cells observed against 44\,\%): the signs combine more freely than syllables in a language do. A fifty-sign rongorongo can wear the syllabary's number, but it has 2.5--10 times less sequential structure than syllabic text of the same alphabet and length. Linear~B is the figure to put in front of a sceptic: an administrative script of lists and tallies, and it still comes out at $-0.156$.
+
+We do not draw a conclusion about the script from this. It is consistent with rongorongo not being a plain syllabary of Rapa Nui, and also with a syllabary heavily obscured by ligature, allography and layout conventions our merge rules do not model. What it rules out is that the resemblance at $L\approx50$ on the raw axis is evidence of syllabic structure: the axis cannot tell the two apart, and the axis that can does not show it. Limits: the Bible texts are homogeneous single-genre prose in translation, against 25 heterogeneous objects; the (C)V syllabification is mechanical and does not separate diphthongs; Linear~B is the only reference that is itself an ancient inscribed corpus, which is why we lean on it.
+
+\section{Noise, sample and estimator: real, and an order of magnitude smaller}
+\label{sec:noise}
+
+\paragraph{Transliteration error.} Korovina notes that all existing transliterations are ``dirty''---contain errors, not merely recodings---``although the error rate is not very high.'' Replacing a fraction $p$ of glyph tokens by another sign drawn from the corpus unigram distribution (20 draws each) moves $\Hcn$ by $+0.002$, $+0.006$, $+0.010$, $+0.020$ at $p=1,3,5,10\,\%$ under the numeric reading and $+0.003$, $+0.008$, $+0.013$, $+0.024$ under Horley's; the structural signal erodes by the same amounts. Five per cent error is about a thirtieth of the catalogue-length effect and a sixth of the signal; ten per cent removes a third of the signal and leaves the rest. It cannot account for the spread in Table~\ref{tab:ladder}, nor for the gap in Table~\ref{tab:syll}. The error model is simple---errors do not preferentially fall on look-alike signs---and is offered as an order of magnitude.
+
+\paragraph{Estimator.} The plug-in estimator is biased downward on sparse tables. Miller--Madow correction, applied to unigram and bigram before subtraction and to real and null alike, changes the ratio of \S\ref{sec:ladder} from 4.1 to 3.7, does not reorder the readings, and barely shrinks the spread (0.318 $\to$ 0.309); the signal grows slightly (0.077 $\to$ 0.083) because the null moves more than the data. But Miller--Madow assumes $m/N \to 0$, and here the number of observed bigram types over bigram tokens is 0.67, 0.51 and 0.27 for the three readings---most bigrams are seen once. In that regime no plug-in-family estimator is reliable, and corrected levels should not be quoted as absolute either. \emph{Differences}---between readings, and between data and null---survive because the bias is on both sides.
+
+\section{What follows}
+
+\begin{enumerate}
+\item \emph{Levels do not travel; differences do.} A normalised conditional entropy of 0.4 or 0.7 for an undeciphered script is a statement about the catalogue and the sample before it is a statement about the script. What can be compared across corpora is the corpus's distance from its own unigram-matched null, and even that only at matched $L$ and $N$.
+\item \emph{Report the catalogue as a parameter.} Any statistic on an undeciphered corpus should be reported as a curve over catalogue size, or at least at two published granularities, with bigram coverage alongside. A single number at a single $L$ invites the reader to compare it with a language plotted at another $L$, and \S\ref{sec:syllabary} shows how misleading that comparison can be.
+\item \emph{The field's catalogue is where the instrument points.} The $\sim$125-sign inventory reached by hand is where structure is maximal and the table still a quarter populated. That is a small vindication of the epigraphers, and a reason not to expect statistics to improve on their judgement about \emph{size}; what statistics can add is a test of \emph{composition}, and there the scribes' substitutions, not conditional entropy, are the evidence.
+\item \emph{The same problem is elsewhere.} The Indus sign lists disagree 1.8-fold (386--694), and \citet{nair2026} shows the corpus ``matching neither cleanly'' of two synthetic baselines at one $L$; Korovina notes the Proto-Indic catalogues are compounded by poor documentation of the seals. The method here---sweep the size, hold the rule, compare to the corpus's own null, put real scripts on the same instrument at matched $N$---transfers without change.
+\end{enumerate}
+
+\section*{Acknowledgements}
+I am grateful to Evgeniya Korovina (Institute of Linguistics, Russian Academy of Sciences) for a correspondence in August 2026 that shaped this note: for naming the length-versus-composition distinction, for the question about catalogue size that became \S\ref{sec:sweep}--\ref{sec:syllabary}, for the observation about transliteration error, and for reading a draft. \todo{confirm wording with her before posting.} Philip Spaelti's XML edition of the CEIPP corpus, the \texttt{rongopy} project's Horley map, ebible.org, and the \texttt{linearb.xyz} corpus made the measurements possible. Errors of palaeography and of reasoning are mine.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+\bibitem[Barthel(1958)]{barthel1958} T.~S. Barthel. \emph{Grundlagen zur Entzifferung der Osterinselschrift}. Cram, de Gruyter, Hamburg, 1958.
+\bibitem[Horley(2005)]{horley2005} P.~Horley. Allographic variations and statistical analysis of the Rongorongo script. \emph{Rapa Nui Journal}, 19(2):107--116, 2005. \todo{verify pages}
+\bibitem[Horley(2021)]{horley2021} P.~Horley. \emph{Rongorongo}. Rapa Nui Press, Hanga Roa, 2021. (Basic-glyph catalogue of $\sim$130 signs; the Barthel$\to$Horley map used here is the one distributed with \texttt{rongopy}, \url{https://github.com/jgregoriods/rongopy}.)
+\bibitem[Korovina(2026)]{korovina2026} E.~Korovina. A computational evaluation of syllabic hypotheses for Rongorongo: evidence from $n$-gram analysis. In \emph{Proceedings of the Fourth Workshop on Language Technologies for Historical and Ancient Languages (LT4HALA 2026) @ LREC 2026}, pages 177--183, Palma, 2026. \url{https://aclanthology.org/2026.lt4hala-1.16/}
+\bibitem[Miller(1955)]{miller1955} G.~A. Miller. Note on the bias of information estimates. In \emph{Information Theory in Psychology}, pages 95--100. Free Press, 1955.
+\bibitem[Nair(2026)]{nair2026} A.~Nair. How non-linguistic is the Indus sign system? A synthetic-baseline scorecard. arXiv:2604.17828, April 2026.
+\bibitem[Pozdniakov and Pozdniakov(2007)]{pozdniakov2007} K.~Pozdniakov and I.~Pozdniakov. Rapanui writing and the Rapanui language: preliminary results of a statistical analysis. \emph{Forum for Anthropology and Culture}, 3:3--36, 2007.
+\bibitem[Rao et al.(2009)]{rao2009} R.~P.~N. Rao, N.~Yadav, M.~N. Vahia, H.~Joglekar, R.~Adhikari, and I.~Mahadevan. Entropic evidence for linguistic structure in the Indus script. \emph{Science}, 324(5931):1165, 2009.
+\bibitem[Rao et al.(2010)]{rao2010reply} R.~P.~N. Rao, N.~Yadav, M.~N. Vahia, H.~Joglekar, R.~Adhikari, and I.~Mahadevan. Entropy, the Indus script, and language: a reply to R.~Sproat. \emph{Computational Linguistics}, 36(4):795--805, 2010.
+\bibitem[Sproat(2010)]{sproat2010} R.~Sproat. Ancient symbols, computational linguistics, and the reviewing practices of the general science journals. \emph{Computational Linguistics}, 36(3):585--594, 2010.
+\bibitem[Sproat(2014)]{sproat2014} R.~Sproat. A statistical comparison of written language and nonlinguistic symbol systems. \emph{Language}, 90(2):457--481, 2014.
+\end{thebibliography}
+
+\end{document}

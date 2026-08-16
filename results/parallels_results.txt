@@ -1,0 +1,18 @@
+283 lines over 23 objects, k = 5
+cross-object seeded line pairs : 119
+  with a real matched block    : 119
+  distinct substitution pairs  : 164
+  substitution events          : 266
+  most frequent                : [(('002', '021'), 12), (('400', '600'), 11), (('045', '046'), 7), (('056', '084'), 6), (('254', '256'), 6), (('700', '710'), 5), (('220', '320'), 4), (('093', '095'), 4)]
+  signs involved               : 182
+
+==========================================================================
+DOES A CATALOGUE ABSORB WHAT THE CORPUS SUBSTITUTES?
+==========================================================================
+  Horley (L=125)   absorbs 56/139 events = 40.3 %   (of events it can classify)
+  random L=125     absorbs 0.7 % +- 0.9    (range 0.0 .. 6.4)
+
+  Horley is 45.1 sd above chance
+
+  => the corpus's own spelling variation supports the published
+     reduction: signs the scribes interchanged do land together.

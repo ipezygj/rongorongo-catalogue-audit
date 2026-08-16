@@ -1,0 +1,29 @@
+corpus L=633  tokens=14812
+core kept distinct: 50 signs = 64.4 % of tokens
+tail: 583 signs cut into 75 classes -> L = 125
+
+==========================================================================
+DEFENDABLE SCHEMES, ALL AT EXACTLY THE SAME L
+==========================================================================
+scheme           L   H_cond norm
+numeric        125         0.758
+frequency      125         0.754
+family         125         0.756
+
+==========================================================================
+ARBITRARY REGROUPING AT THE SAME L — 300 draws
+==========================================================================
+  mean 0.7632   sd 0.0008   range 0.7611 .. 0.7661
+
+==========================================================================
+VERDICT
+==========================================================================
+  composition alone, L fixed at 125        0.004
+  arbitrary regrouping, same L (sd)          0.0008
+  changing L instead (125 / 633 / 1897)      0.318
+
+  numeric     h=0.758   z vs arbitrary =     -6.6
+  frequency   h=0.754   z vs arbitrary =    -10.9
+  family      h=0.756   z vs arbitrary =     -9.1
+
+  composition / length  =  0.004 / 0.318  = 1 % of the length effect
