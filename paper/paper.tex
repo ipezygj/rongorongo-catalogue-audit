@@ -103,6 +103,13 @@ The sharpest single observation is in the coverage column. Under the variant rea
 
 \paragraph{The denominator is itself contested.} \citet{rao2010reply} normalise with $L=417$ (Mahadevan). Parpola gives 386, ICIT 584, Wells 694. Changing only the denominator, corpus untouched, moves a value near 0.5 by about 0.045---the size of the entire structural signal we measure in rongorongo---and that is a lower bound, since a change of sign list changes the string as well.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_sweep.pdf}
+\caption{Rongorongo under four merge rules as a function of catalogue size (lines), and real syllabaries at their own size (diamonds; Rapa Nui and M\=aori syllabified with vowel length folded or kept, and Linear~B), all at the rongorongo token count. (a) Distance of the corpus from its unigram-matched shuffle on the log-base-$L$ scale: more negative is more sequential structure. No rule has an interior optimum except Horley's published 125; every syllabary sits 2.4--3.6 times further from its shuffle than the best rongorongo catalogue at the same $L$. (b) Share of the $L\times L$ bigram table observed. The grey line marks $L=125$.}
+\label{fig:sweep}
+\end{figure}
+
 \section{Size, not composition: a sweep over catalogue length}
 \label{sec:sweep}
 
@@ -129,7 +136,7 @@ $L$ & signal & cov & signal & cov & signal & cov & signal & cov \\
 \label{tab:sweep}
 \end{table}
 
-Three things follow from Table~\ref{tab:sweep}.
+Three things follow from Table~\ref{tab:sweep} and Figure~\ref{fig:sweep}(a).
 
 \emph{There is no knee at the syllable count.} Under every rule the distance from the shuffle grows monotonically with $L$; the only interior maximum anywhere in the grid is Horley's published 125 ($-0.077$, $z\approx-77$), and merging Horley downward loses signal steadily ($-0.045$ at 50, $-0.025$ at 25). Coverage, going the other way, falls below a quarter of the table once $L$ passes 100--125. If ``best'' means \emph{most structure visible while the statistic is still estimable}, the two criteria cross at roughly 100--125---where the field's own catalogue sits---and not at 50.
 
@@ -163,7 +170,7 @@ Horley sits 35 standard deviations above chance and 2.2 times the best mechanica
 \section{Does a small catalogue make rongorongo look syllabic?}
 \label{sec:syllabary}
 
-Korovina (p.c.) predicted that reducing the catalogue to about 50---the number of Rapa Nui syllables---``will inevitably get more similarity to syllables than to anything else,'' as a property of the material rather than a bug. Testing this needs syllabaries on the same instrument, at the same $L$ and the same $N$. Table~\ref{tab:syll} gives them.
+Korovina (p.c.) predicted that reducing the catalogue to about 50---the number of Rapa Nui syllables---``will inevitably get more similarity to syllables than to anything else,'' as a property of the material rather than a bug. Testing this needs syllabaries on the same instrument, at the same $L$ and the same $N$. Table~\ref{tab:syll} gives them; Figure~\ref{fig:sweep} places them on the sweep.
 
 \begin{table}[t]
 \centering\small
