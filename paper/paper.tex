@@ -28,7 +28,8 @@
 \begin{center}\small
 \fbox{\parbox{0.93\textwidth}{\textbf{Version history.}
 \emph{v2 (23 August 2026)}: \S\ref{sec:syllabary} gained four collections of native Rapa Nui prose supplied by E.~Korovina, one of which dissents for reasons of transcription rather than language.
-\emph{v3 (23 August 2026)}: Appendix~A is rewritten. Versions~1 and~2 reported rongorongo's repetition rates against a shuffle of the \emph{pooled} corpus and concluded that a plain syllabic reading was ruled out. Against a null matched to the way the reference languages were measured---one shuffle per text---$AA$ falls from 1.6--2.4 to 1.12, $AAA$ from 5--15 to 1.68, and $ABAB$ from 30--100 to 20.7, and Linear~B, an actual syllabary, exceeds rongorongo on $AAA$. \textbf{The elimination argument does not survive and has been withdrawn.} What survives is stated in its place. \S\ref{sec:data} also notes two CEIPP codes that are not signs and were counted as signs in two of the three readings; correcting that moves the headline ratio from 4.14 to 4.28.}}
+\emph{v3 (23 August 2026)}: Appendix~A is rewritten. Versions~1 and~2 reported rongorongo's repetition rates against a shuffle of the \emph{pooled} corpus and concluded that a plain syllabic reading was ruled out. Against a null matched to the way the reference languages were measured---one shuffle per text---$AA$ falls from 1.6--2.4 to 1.12, $AAA$ from 5--15 to 1.68, and $ABAB$ from 30--100 to 20.7, and Linear~B, an actual syllabary, exceeds rongorongo on $AAA$. \textbf{The elimination argument does not survive and has been withdrawn.} What survives is stated in its place. \S\ref{sec:data} also notes two CEIPP codes that are not signs and were counted as signs in two of the three readings; correcting that moves the headline ratio from 4.14 to 4.28.
+\emph{v4 (23 August 2026)}: a new \Sef{sec:robust} applies the test that killed the appendix to every other claim in the paper. Four of the five hold, and where the treatment changes a published figure it makes it larger.}}
 \end{center}
 
 
@@ -239,7 +240,36 @@ shape-ordered merge vs random & worse than random ($-3$ to $-10$ sd) & equal ($-
 \label{tab:indus}
 \end{table}
 
+\section{Robustness: the same test applied to every claim}
+\label{sec:robust}
+
+Appendix~A's conclusion was withdrawn in version~3 because it depended on the choice of null: rongorongo's repetition rates had been measured against a shuffle of the pooled corpus, while the reference languages were each a single text. A reader is entitled to ask at that point whether anything else in the paper rests on the same mistake. This section reports the answer, which is that it does not, and that where the treatment changes the published figures at all it makes them larger.
+
+Three corrections are applied and each claim is remeasured under all of them: the two codes that are not signs are treated as breaks in every reading (\S\ref{sec:data}); the entropy null is changed from a shuffle of the pooled corpus to a shuffle within each object, which is what the single-text references implicitly used; and the parallel-passage seeds are recomputed without the unidentified-glyph code.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{l l r r l}
+\toprule
+ & claim & published & remeasured & verdict \\
+\midrule
+\S\ref{sec:ladder} & catalogue moves the instrument, $\times$ signal & 4.14 & 4.28 / 4.42 & holds, larger \\
+\S\ref{sec:composition} & Horley vs.\ best mechanical rule of same size & 2.2 & 2.5 & holds, larger \\
+\S\ref{sec:syllabary} & gap to real syllabaries, best catalogue & 2.4--3.6 & 2.4--3.5 & holds \\
+\S\ref{sec:follows} & Indus signal retained under a within-text null & --- & 72\,\% & holds \\
+App.~A & rongorongo $AA$, times expectation & 1.6--2.4 & 1.12 & \textbf{withdrawn} \\
+\bottomrule
+\end{tabular}
+\caption{Every quantitative claim remeasured under the corrections of \S\ref{sec:data} and under an object-preserving null. For \S\ref{sec:ladder} the two remeasured figures are with the pseudo-signs removed and with the null changed as well. For \S\ref{sec:follows}, Indus keeps 72\,\% of its pooled signal under a within-text shuffle where rongorongo keeps 71--75\,\%, so the comparison between the two scripts is unchanged.}
+\label{tab:robust}
+\end{table}
+
+The pattern is worth stating plainly. Conditional entropy is a property of the bulk of the bigram distribution and moves by less than a tenth when the null is changed; the immediate-repetition rate is a single rare event type, and it moves by a factor of two and a half and crosses unity. The measurement that failed was the one most exposed to the mixture of vocabularies across 25 objects, and the measurements that held are the ones that average over the whole distribution. That is not a defence of the failure. It is the reason the failure was invisible for two versions: the paper's central instrument is robust to a choice that its appendix was not.
+
+One negative result belongs here rather than in a footnote. Rewriting the parallel-passage search from scratch, rather than rerunning the original code, produced a Horley absorption of 5.8\,\% against the published 40.3\,\%. The reimplementation was wrong: it recorded every mismatch within forty positions of a seed and so produced 1\,609 putative substitution pairs where the careful alignment produces 164, most of them noise. The published figure reproduces exactly when the original script is run. We report this because the same trap---a rough new implementation appearing to refute a careful old one---was avoided twice in preparing this version and would have produced a false correction had it not been checked.
+
 \section{What follows}
+\label{sec:follows}
 
 \begin{enumerate}
 \item \emph{Levels do not travel; differences do.} A normalised conditional entropy of 0.4 or 0.7 for an undeciphered script is a statement about the catalogue and the sample before it is a statement about the script. What can be compared across corpora is the corpus's distance from its own unigram-matched null, and even that only at matched $L$ and $N$.

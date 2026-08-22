@@ -1,0 +1,10 @@
+loader: read_m77 (Mahadevan 1977, uncertain readings dropped)
+Indus: L=417 n=13372 Hcn=0.3774  texts=3574
+  null       null Hcn     signal
+  pooled       0.5945    -0.2172
+  run          0.5347    -0.1574
+  -> within-text null keeps 72% of the pooled signal
+
+  For comparison, rongorongo keeps 75%% (horley) / 71%% (numeric) under its
+  strictest local null, and Indus texts are so short (mean 3.7) that the
+  within-text null is nearly the strictest one available.

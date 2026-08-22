@@ -7,7 +7,7 @@ How the choice of sign inventory moves the statistics of an undeciphered script,
 measured on rongorongo. Code, results and paper draft.
 
 **Paper:** `paper/paper.pdf`, preprint of August 2026 — doi:10.5281/zenodo.22057706
-(concept DOI, resolves to the latest version; v3 = 10.5281/zenodo.22058662).
+(concept DOI, resolves to the latest version; v4 = 10.5281/zenodo.22058944).
 **Not redistributed:** `korovina_ref.py` and `campbell_probe.py` read four Rapa Nui text
 collections sent privately by E. Korovina. They are not in this repository and `fetch_data.py`
 does not download them; those two scripts will not run without them. Everything else does.
