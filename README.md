@@ -1,12 +1,14 @@
 # The Catalogue Is the Instrument
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21964265.svg)](https://doi.org/10.5281/zenodo.21964265)
+[![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22057706.svg)](https://doi.org/10.5281/zenodo.22057706)
+[![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21964265.svg)](https://doi.org/10.5281/zenodo.21964265)
 
 How the choice of sign inventory moves the statistics of an undeciphered script,
 measured on rongorongo. Code, results and paper draft.
 
-**Paper:** `paper/paper.pdf` (draft, August 2026; arXiv link to follow).
-**Cite the code:** doi:10.5281/zenodo.21964265 (concept DOI, resolves to the latest version; v0.1.1 = 10.5281/zenodo.21964266).
+**Paper:** `paper/paper.pdf`, preprint of August 2026 — doi:10.5281/zenodo.22057706
+(concept DOI, resolves to the latest version; this version = 10.5281/zenodo.22057707).
+**Cite the code:** doi:10.5281/zenodo.21964265 (concept DOI; v0.1.1 = 10.5281/zenodo.21964266).
 Author: Ilpo Väätäinen. Correspondence with Evgeniya Korovina (Institute of
 Linguistics, RAS) shaped the questions in §5–§7; see acknowledgements.
 
