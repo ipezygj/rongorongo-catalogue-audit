@@ -1,0 +1,41 @@
+========================================================================================================
+RAPA NUI PROSE FROM KOROVINA (2026-08-22) vs the Bible-based reference in section 7
+========================================================================================================
+Campbell     54717 chars ->  10952 words kept,  1259 dropped (10.3% removed as non-Rapa Nui)
+Englert     165580 chars ->  35117 words kept,  2029 dropped (5.5% removed as non-Rapa Nui)
+Isla6       129891 chars ->  30275 words kept,   309 dropped (1.0% removed as non-Rapa Nui)
+ManuE        70827 chars ->  14071 words kept,   724 dropped (4.9% removed as non-Rapa Nui)
+
+ref            tokens     L | full text: Hcn  sig     z   cov  | N=14812 samples (mean+-sd): L Hcn sig z cov
+--------------------------------------------------------------------------------------------------------
+Campbell_long   20809    54 | 0.767 -0.081   -97.2  54.0% |  54.0 0.757+-0.006 -0.083+-0.003   -87.8  48.9%
+Campbell_fold   20809    54 | 0.767 -0.082   -93.7  54.0% |  54.0 0.756+-0.007 -0.083+-0.003   -86.6  48.9%
+Englert_long    63704    54 | 0.733 -0.139  -464.6  60.4% |  53.3 0.697+-0.005 -0.157+-0.004  -175.2  43.0%
+Englert_fold    63704    54 | 0.733 -0.139  -381.6  60.4% |  53.4 0.697+-0.004 -0.156+-0.003  -178.3  43.0%
+Isla6_long      53508    90 | 0.653 -0.145  -426.0  28.3% |  80.0 0.637+-0.008 -0.157+-0.011  -214.3  23.7%
+Isla6_fold      53508    51 | 0.744 -0.142  -398.8  63.7% |  49.5 0.718+-0.008 -0.156+-0.013  -224.3  50.6%
+ManuE_long      29056    76 | 0.647 -0.133  -215.8  25.2% |  70.5 0.635+-0.016 -0.146+-0.009  -158.0  23.6%
+ManuE_fold      29056    48 | 0.722 -0.145  -238.0  55.3% |  48.0 0.701+-0.010 -0.154+-0.009  -164.3  45.8%
+ALL_long       167077    98 | 0.678 -0.102  -448.8  31.6% |  65.3 0.680+-0.038 -0.144+-0.026  -177.7  34.7%
+ALL_fold       167077    55 | 0.771 -0.108  -559.5  74.5% |  52.5 0.712+-0.020 -0.145+-0.025  -177.9  45.9%
+
+========================================================================================================
+RONGORONGO MERGED TO THE SAME L, and the gap in |sig|
+========================================================================================================
+L=48    rongorongo best = horley   Hcn 0.823 sig -0.044 cov 67.6%
+        ManuE_fold    Hcn 0.701 sig -0.154  ->  gap 3.46x
+L=51    rongorongo best = horley   Hcn 0.813 sig -0.044 cov 64.7%
+        Isla6_fold    Hcn 0.718 sig -0.156  ->  gap 3.54x
+L=54    rongorongo best = horley   Hcn 0.809 sig -0.046 cov 61.9%
+        Englert_long  Hcn 0.697 sig -0.157  ->  gap 3.41x
+        Englert_fold  Hcn 0.697 sig -0.156  ->  gap 3.38x
+        Campbell_fold Hcn 0.756 sig -0.083  ->  gap 1.81x
+        Campbell_long Hcn 0.757 sig -0.083  ->  gap 1.80x
+L=55    rongorongo best = horley   Hcn 0.807 sig -0.047 cov 61.5%
+        ALL_fold      Hcn 0.712 sig -0.145  ->  gap 3.11x
+L=76    rongorongo best = horley   Hcn 0.768 sig -0.061 cov 43.7%
+        ManuE_long    Hcn 0.635 sig -0.146  ->  gap 2.40x
+L=90    rongorongo best = horley   Hcn 0.745 sig -0.066 cov 36.2%
+        Isla6_long    Hcn 0.637 sig -0.157  ->  gap 2.39x
+L=98    rongorongo best = horley   Hcn 0.732 sig -0.066 cov 31.4%
+        ALL_long      Hcn 0.680 sig -0.144  ->  gap 2.19x

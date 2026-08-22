@@ -1,0 +1,23 @@
+============================================================================================
+WHY IS CAMPBELL LOW?  baseline signals at matched N=14812 windows
+============================================================================================
+  Isla6    -0.1648
+  Campbell -0.0834      (ratio Campbell/Isla6 = 0.51)
+
+A  ORTHOGRAPHY: strip glottals and macrons from Isla6 (imitating Campbell's marking)
+   Isla6 stripped   -0.1301   (was -0.1648, moved +0.0348 = 43% of the way to Campbell)
+
+B  FILTERING: cut Isla6's chain at Campbell's drop rate (10.3%% of words -> breaks)
+   Isla6 chopped    -0.1604   (moved +0.0044 = 5% of the way)
+
+C  LENGTH: truncate Isla6 to Campbell's token count (20809), same window procedure
+   Isla6 truncated  -0.1438   (moved +0.0211 = 26% of the way)
+
+============================================================================================
+D  REPETITION PROFILE (observed / within-run shuffle expectation)
+============================================================================================
+text                 AA        AAA       ABAB
+Campbell          0.55x      0.49x      8.48x
+Englert           0.64x      0.20x      7.17x
+Isla6             0.65x      0.32x      6.69x
+ManuE             0.70x      0.46x      6.74x
