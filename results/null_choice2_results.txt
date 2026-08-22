@@ -1,0 +1,11 @@
+========================================================================================
+AA observed/expected under three nulls, references RE-CUT to rongorongo run lengths
+========================================================================================
+reference              tokens    global      text       run
+Rapa Nui (NT)           14120      0.58      0.57      0.56
+Maori (NT)              14120      0.52      0.52      0.51
+Linear B                14120      0.73      0.75      0.63
+Rapa Nui (Isla6)        14120      0.69      0.70      0.66
+Rapa Nui (Englert)      14120      0.64      0.66      0.61
+
+rongorongo, same three nulls (from null_choice.py): global 1.58, object 1.13, run 0.61

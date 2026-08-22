@@ -1,0 +1,25 @@
+====================================================================================================
+PER-OBJECT REPETITION, observed / own-shuffle, lags 1-6  (000 and 999 treated as non-signs)
+====================================================================================================
+obj  name                   tokens  lag1  lag2  lag3  lag4  lag5  lag6
+A    Tahua                    2027   0.69   1.66   1.25   1.35   0.83   1.09
+B    Aruku-Kurenga            1387   0.52   1.38   1.33   1.32   1.20   0.79
+C    Mamari                   1042   0.83   1.53   0.91   0.88   1.03   0.89
+E    Keiti                     903   0.55   1.59   1.38   1.05   0.94   0.92
+G    Small Santiago            732   0.53   0.94   1.04   1.05   1.18   1.38
+H    Great Santiago           1742   0.59   1.76   1.23   1.18   0.84   1.11
+I    Santiago Staff           2411   0.46   0.82   0.94   1.43   1.46   1.23
+P    Great St.Petersburg      1757   0.57   1.54   1.34   1.24   0.84   0.97
+Q    Small St.Petersburg       982   0.50   1.90   1.41   0.90   1.01   1.16
+R    Atua-Mata-Riri            489   1.30   1.51   1.31   0.77   0.66   0.84
+S    Great Washington          787   0.43   1.55   1.02   1.06   1.61   1.23
+
+====================================================================================================
+THE SANTIAGO STAFF (I): what 76 is doing
+====================================================================================================
+  tokens after removing 000/999: 2280;  76 = 554 (24.3%), next commonest [('90', 104), ('71', 90), ('700', 58)]
+  segment lengths between successive 76:    (>6: 0)
+  Staff as encoded         n= 2372  lag1  0.47  lag2  0.80  lag3  0.95  lag4  1.35  lag5  1.37  lag6  1.19
+  Staff with 76 removed    n= 1814  lag1  0.85  lag2  1.25  lag3  1.09  lag4  0.68  lag5  0.91  lag6  1.47
+
+  Fischer's triads predict a period-3 excess. lag3 above is the test.

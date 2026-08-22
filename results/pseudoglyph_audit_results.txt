@@ -1,0 +1,12 @@
+============================================================================================
+EFFECT OF TREATING 000 AND 999 AS NON-SIGNS
+============================================================================================
+reading                      as published         pseudo-signs removed
+                    L     Hcn     sig     n        L     Hcn     sig     n
+numeric 633       633   0.522  -0.055 14812      631   0.516  -0.057 14325
+full 1897        1897   0.385  -0.046 14812     1884   0.376  -0.048 14325
+horley 125        125   0.703  -0.077 15415      124   0.703  -0.076 15361
+
+LADDER SPREAD (the headline of section 4)
+  as published           spread 0.318 | best |signal| 0.077 | ratio 4.14x
+  pseudo-signs removed   spread 0.327 | best |signal| 0.076 | ratio 4.28x

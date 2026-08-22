@@ -1,0 +1,14 @@
+============================================================================================
+AA / AAA / ABAB, observed divided by expectation, under three nulls
+============================================================================================
+                             null = global null = per text/object      null = per run
+                           AA   AAA   ABAB     AA   AAA   ABAB     AA   AAA   ABAB
+rongorongo (pooled)      1.59  4.34   34.6   1.12  1.68   20.7   0.62  0.63    4.7
+Rapa Nui (NT)            0.57  0.47    8.3   0.57  0.41    9.3   0.57  0.55    8.1
+Maori (NT)               0.52  0.19    4.8   0.52  0.16    4.7   0.52  0.20    3.5
+Linear B                 0.72  4.38    1.2   0.74  4.33    1.1   0.64  2.56    0.8
+Rapa Nui (Isla6)         0.69  0.29    7.7   0.69  0.31    8.0   0.65  0.25    5.8
+
+Appendix A of version 2 states: AA 1.6-2.4, AAA 5-15, ABAB 30-100 for rongorongo,
+against languages 0.5-0.6 on AA, AAA near zero, ABAB 2.5-7.7. Those are the
+'global' column. The question is whether the contrast survives the other two.
