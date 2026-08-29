@@ -133,7 +133,9 @@ for name, runs in refs.items():
     p("%-17s %s" % (row[0], "  ".join("%+8.4f" % v for v in row[1:])))
 
 p("")
-p("rongorongo, best of four rules at each L:")
+p("rongorongo, best of the three catalogue rules at each L"
+  "  (numeric cut, Horley cut where L<=125, frequency fold; random is a"
+  "  baseline, not a candidate):")
 row=["rongorongo"]
 for L in LS:
     cands=[]

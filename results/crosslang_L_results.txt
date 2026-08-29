@@ -9,5 +9,5 @@ Hawaiian prose     -0.0930   -0.1019   -0.1018   -0.1020
 Hawaiian song      -0.0734   -0.0761   -0.0764   -0.0765
 Linear B           -0.0830   -0.1064   -0.1179   -0.1103
 
-rongorongo, best of four rules at each L:
+rongorongo, best of the three catalogue rules at each L  (numeric cut, Horley cut where L<=125, frequency fold; random is a  baseline, not a candidate):
 rongorongo         -0.0221   -0.0270   -0.0343   -0.0492
