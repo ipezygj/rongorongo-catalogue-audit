@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or these results, please cite the preprint and this repository."
-title: "The Catalogue Is the Instrument: how the choice of sign inventory moves the statistics of an undeciphered script (code and results)"
+title: "How the choice of sign inventory moves the statistics of an undeciphered script: rongorongo under three published readings, with the Indus script as an outside check (code and results)"
 type: software
 version: "0.1"
 date-released: "2026-08-16"
@@ -12,7 +12,7 @@ doi: "10.5281/zenodo.21964265"
 repository-code: "https://github.com/ipezygj/rongorongo-catalogue-audit"
 preferred-citation:
   type: article
-  title: "The Catalogue Is the Instrument: how the choice of sign inventory moves the statistics of an undeciphered script"
+  title: "How the choice of sign inventory moves the statistics of an undeciphered script: rongorongo under three published readings, with the Indus script as an outside check"
   authors:
     - family-names: "Väätäinen"
       given-names: "Ilpo"

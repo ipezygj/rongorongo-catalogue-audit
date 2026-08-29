@@ -1,4 +1,4 @@
-# The Catalogue Is the Instrument
+# How the Choice of Sign Inventory Moves the Statistics of an Undeciphered Script
 
 [![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22057706.svg)](https://doi.org/10.5281/zenodo.22057706)
 [![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21964265.svg)](https://doi.org/10.5281/zenodo.21964265)
@@ -8,7 +8,7 @@ measured on rongorongo. Code, results and paper draft.
 
 **Paper:** `paper/paper.pdf`, preprint of August 2026 — doi:10.5281/zenodo.22057706
 (concept DOI, resolves to the latest version; the deposit this repository now
-matches is 10.5281/zenodo.22124423, 27 August 2026).
+matches is 10.5281/zenodo.22158360, 29 August 2026).
 **Not redistributed:** `korovina_ref.py` and `campbell_probe.py` read four Rapa Nui text
 collections sent privately by E. Korovina. They are not in this repository and `fetch_data.py`
 does not download them; those two scripts will not run without them. Everything else does.

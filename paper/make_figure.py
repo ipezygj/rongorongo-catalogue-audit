@@ -34,7 +34,7 @@ plt.rcParams.update({"font.size": 8.5, "font.family": "serif", "axes.spines.top"
                      "axes.edgecolor": "#8a8a85", "axes.labelcolor": "#222", "xtick.color": "#444", "ytick.color": "#444"})
 fig, (a, b) = plt.subplots(1, 2, figsize=(6.6, 2.9), dpi=200)
 
-for ax, data, ylab in ((a, sig, "distance from unigram-matched shuffle"), (b, cov, "bigram coverage (% of table observed)")):
+for ax, data, ylab in ((a, sig, r"$\Delta$: distance from unigram-matched null"), (b, cov, "bigram coverage (% of table observed)")):
     for k in ("random", "Barthel-adjacent", "frequency", "Horley"):
         ys = data[k]
         ax.plot(L[:len(ys)], ys, color=COL[k], **STYLE[k], solid_capstyle="round")
@@ -85,7 +85,7 @@ b.annotate("syllabaries", (50, 44), xytext=(-7, -2), textcoords="offset points",
 a.set_ylim(-0.21, 0.0)
 a.set_yticks([0, -0.05, -0.10, -0.15, -0.20])
 b.set_ylim(0, 102)
-a.set_title("(a) structural signal", loc="left", fontsize=9)
+a.set_title("(a) distance from the null", loc="left", fontsize=9)
 b.set_title("(b) coverage", loc="left", fontsize=9)
 fig.tight_layout(w_pad=2.0)
 fig.savefig("fig_sweep.pdf")

@@ -1,9 +1,27 @@
 {
-  "title": "The Catalogue Is the Instrument: how the choice of sign inventory moves the statistics of an undeciphered script (code and results)",
+  "title": "How the choice of sign inventory moves the statistics of an undeciphered script: rongorongo under three published readings, with the Indus script as an outside check (code and results)",
   "upload_type": "software",
-  "creators": [{"name": "Väätäinen, Ilpo"}],
+  "creators": [
+    {
+      "name": "Väätäinen, Ilpo"
+    }
+  ],
   "license": "MIT",
-  "keywords": ["rongorongo", "undeciphered scripts", "conditional entropy", "transliteration", "sign catalogue", "Linear B", "Rapa Nui"],
+  "keywords": [
+    "rongorongo",
+    "undeciphered scripts",
+    "conditional entropy",
+    "transliteration",
+    "sign catalogue",
+    "Linear B",
+    "Rapa Nui"
+  ],
   "description": "Scripts and results behind the paper draft: catalogue ladder (4.1x), catalogue-size sweep, composition tests (core-held, rule-free, scribal substitutions), syllabary references (Rapa Nui, Maori, Linear B) at matched size and length, transliteration-noise and Miller-Madow checks. Standard-library Python 3.10+; fetch_data.py downloads every input, nothing third-party is redistributed.",
-  "related_identifiers": [{"identifier": "https://github.com/ipezygj/rongorongo-catalogue-audit", "relation": "isSupplementTo", "scheme": "url"}]
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ipezygj/rongorongo-catalogue-audit",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
 }
