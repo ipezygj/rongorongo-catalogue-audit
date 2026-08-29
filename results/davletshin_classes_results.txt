@@ -1,0 +1,43 @@
+================================================================================================
+RONGORONGO (Horley 125, per-object runs)  |  125 types, 15115 tokens  |  ABAB events 201 on 74 sign types (59% of types)  |  AAA 56
+  P1 concentration: top 10% of types carry 57% of ABAB participation (Gini 0.75 over all types)
+  if ABAB simply followed frequency (weight tok^2), top 10% would carry 80%
+  P2 isolation rate (share of a sign's tokens standing as a 1-token run):
+     ABAB carriers 1.07%   non-carriers 1.37%
+  top ABAB carriers: 1(31/767), 10(29/681), 6(26/897), 200(25/1011), 4(22/480), 2(22/332), 381(17/469), 600(15/614), 2a(12/270), 9(11/232), 3(11/418), 700(10/311)
+  AAA carriers: 40(12), 200(8), 451(6), 600(5), 2(3), 90(3), 700(3), 4(2), 790(2), 22(2), 48(2), 381(1)
+================================================================================================
+RAPA NUI syllables (Isla6), rongorongo run lengths, matched N  |  50 types, 15115 tokens  |  ABAB events 108 on 34 sign types (68% of types)  |  AAA 6
+  P1 concentration: top 10% of types carry 51% of ABAB participation (Gini 0.70 over all types)
+  if ABAB simply followed frequency (weight tok^2), top 10% would carry 61%
+  P2 isolation rate (share of a sign's tokens standing as a 1-token run):
+     ABAB carriers 1.20%   non-carriers 0.69%
+  top ABAB carriers: a(31/1369), i(27/1464), ra(23/587), va(15/260), ke(15/156), ri(14/210), ta(12/598), u(10/407), ka(8/504), 'a(6/710), hi(5/212), pa(4/131)
+  AAA carriers: a(3), re(2), e(1)
+================================================================================================
+RAPA NUI words (Isla6), rongorongo run lengths, matched N  |  1371 types, 15115 tokens  |  ABAB events 0 on 0 sign types (0% of types)  |  AAA 0
+  P1 concentration: top 10% of types carry nan% of ABAB participation (Gini nan over all types)
+  if ABAB simply followed frequency (weight tok^2), top 10% would carry 99%
+  P2 isolation rate (share of a sign's tokens standing as a 1-token run):
+     ABAB carriers 0.00%   non-carriers 1.11%
+  top ABAB carriers: 
+================================================================================================
+LINEAR B syllabograms, rongorongo run lengths, matched N  |  90 types, 15115 tokens  |  ABAB events 11 on 7 sign types (8% of types)  |  AAA 32
+  P1 concentration: top 10% of types carry 100% of ABAB participation (Gini 0.96 over all types)
+  if ABAB simply followed frequency (weight tok^2), top 10% would carry 52%
+  P2 isolation rate (share of a sign's tokens standing as a 1-token run):
+     ABAB carriers 1.14%   non-carriers 1.11%
+  top ABAB carriers: ko(8/566), wo(7/364), re(2/359), e(2/566), wa(1/238), ma(1/188), ra(1/440)
+  AAA carriers: ke(27), to(2), o(2), jo(1)
+================================================================================================
+MAORI syllables (NT), rongorongo run lengths, matched N  |  52 types, 15115 tokens  |  ABAB events 93 on 28 sign types (54% of types)  |  AAA 7
+  P1 concentration: top 10% of types carry 61% of ABAB participation (Gini 0.78 over all types)
+  if ABAB simply followed frequency (weight tok^2), top 10% would carry 68%
+  P2 isolation rate (share of a sign's tokens standing as a 1-token run):
+     ABAB carriers 1.19%   non-carriers 0.85%
+  top ABAB carriers: a(40/2012), i(34/1280), ta(18/607), nga(12/477), re(10/296), e(8/609), u(8/711), ka(6/764), ri(5/224), hi(5/234), he(5/221), o(4/280)
+  AAA carriers: te(2), na(2), pa(1), a(1), ka(1)
+
+Reading: Davletshin predicts P1 (concentration) and P2 (carriers not isolated) for
+rongorongo. P3 asks whether Rapa Nui shows the same concentration - if it does, P1
+is a property of reduplicating languages in general and not a discriminator.

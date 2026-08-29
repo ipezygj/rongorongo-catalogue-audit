@@ -42,23 +42,37 @@ for ax, data, ylab in ((a, sig, "distance from unigram-matched shuffle"), (b, co
     ax.set_xticks([25, 50, 100, 200, 400, 633])
     ax.set_xticklabels(["25", "50", "100", "200", "400", "633"])
     ax.minorticks_off()
-    ax.set_xlabel("catalogue size L (signs)")
+    ax.set_xlabel("inventory size after merging, L (classes)")
     ax.set_ylabel(ylab)
     ax.grid(axis="y", color="#e5e5e2", lw=0.6)
     ax.axvline(125, color="#c9c9c4", lw=0.8, zorder=0)
 a.set_xlim(22, 750)
 b.set_xlim(22, 750)
-# direct labels, placed mid-curve where the lines are apart
-a.annotate("Horley", (100, -0.068), xytext=(-5, -3), textcoords="offset points", ha="right", va="top", fontsize=7.5, color="#222")
+# direct labels, placed mid-curve where the lines are apart. Each line is a MERGE
+# RULE applied to the same token stream, not a catalogue whose size varies.
+a.annotate("Horley, merged down", (100, -0.068), xytext=(-5, -3), textcoords="offset points", ha="right", va="top", fontsize=7.5, color="#222")
 a.annotate("frequency", (300, -0.062), xytext=(0, -8), textcoords="offset points", ha="center", va="top", fontsize=7.5, color="#222")
 a.annotate("random", (40, -0.025), xytext=(3, 5), textcoords="offset points", ha="left", va="bottom", fontsize=7.5, color="#222")
 a.annotate("Barthel-adjacent", (200, -0.036), xytext=(0, 5), textcoords="offset points", ha="center", va="bottom", fontsize=7.5, color="#222")
 b.annotate("random", (40, 92.6), xytext=(5, 2), textcoords="offset points", fontsize=7.5, color="#222")
-b.annotate("Horley", (60, 58.4), xytext=(7, 4), textcoords="offset points", fontsize=7.5, color="#222")
+b.annotate("Horley, merged down", (60, 58.4), xytext=(7, 4), textcoords="offset points", fontsize=7.5, color="#222")
 b.annotate("frequency", (200, 13.6), xytext=(6, 4), textcoords="offset points", fontsize=7.5, color="#222")
 b.annotate("Barthel-adjacent", (150, 16.8), xytext=(-8, -12), textcoords="offset points", ha="right", fontsize=7.5, color="#222")
 for ax in (a, b):
     ax.text(125, ax.get_ylim()[1], "125", ha="center", va="bottom", fontsize=6.5, color="#777")
+
+# The published catalogues are single points on these curves: Horley's map is the
+# right-hand end of its own line (it cannot be un-merged past his 125), and at
+# L=633 every rule is the identity, which is the CEIPP numeric reading itself.
+for ax, pts in ((a, [(125, -0.077), (633, -0.055)]), (b, [(125, 23.9), (633, 1.7)])):
+    for x_, y_ in pts:
+        ax.plot(x_, y_, marker="o", ms=6, mfc="white", mec="#222", mew=1.1, ls="none", zorder=5)
+a.text(640, -0.088,
+       "open circles: published catalogues\n"
+       "Horley\u2019s line ends at his own 125\n"
+       "at 633 all merge rules coincide",
+       ha="right", va="top", fontsize=6.6, color="#555", linespacing=1.5)
+
 # reference syllabaries
 for lab, l_, s_, c_ in refs:
     a.plot(l_, s_, marker="D", ms=4.5, color="#111", mec="white", mew=0.6, ls="none")

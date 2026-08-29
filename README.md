@@ -7,7 +7,8 @@ How the choice of sign inventory moves the statistics of an undeciphered script,
 measured on rongorongo. Code, results and paper draft.
 
 **Paper:** `paper/paper.pdf`, preprint of August 2026 — doi:10.5281/zenodo.22057706
-(concept DOI, resolves to the latest version; v4 = 10.5281/zenodo.22058944).
+(concept DOI, resolves to the latest version; the deposit this repository now
+matches is 10.5281/zenodo.22124423, 27 August 2026).
 **Not redistributed:** `korovina_ref.py` and `campbell_probe.py` read four Rapa Nui text
 collections sent privately by E. Korovina. They are not in this repository and `fetch_data.py`
 does not download them; those two scripts will not run without them. Everything else does.
@@ -50,6 +51,32 @@ python fingerprint.py          # Appendix A repetition fingerprint    -> results
 python indus/indus.py          # Table 4 Indus on the same instrument  -> indus/indus_results.txt   ~2 min
 python robustness.py          # §7 run-length + sample-size checks -> results/robustness_results.txt ~6 min
 ```
+
+Added since the first release; each is named in the paper where its number appears:
+
+```
+python pseudoglyph_audit.py     # the two CEIPP codes that are not signs
+python coverage_symmetry.py     # rongorongo and Indus coverage on one grid, one rule
+python indus_published_range.py # the published Indus catalogues, same instrument
+python crosslang_L.py           # is the syllabary gap language-dependent, or unmatched L?
+python hawaiian_genre.py        # song against prose, one language
+python genres_mri2.py           # chant against narrative, Maori
+python genealogy.py             # genealogy: the genre the rongorongo tradition names
+python robust_all.py            # Table 9: every claim under the stricter null
+python null_choice3.py          # AA, AAA and ABAB under three nulls
+python ligature_aa.py           # the ligature check asked of AA and AAA, not only ABAB
+python abab_null_stability.py   # how stable the ABAB ratio is across seeds
+python fingerprint2.py          # per-object repetition, and the Santiago Staff
+python davletshin_classes.py    # Davletshin's combinatorial-class claim, measured
+python davletshin_signs.py      # his deciphered signs against the ABAB/AAA ranking
+python davletshin_locate.py     # where those ABAB events sit in the CEIPP XML
+```
+
+Some of these exist because a correspondent asked rather than because we planned
+them: `indus_published_range.py` after R. Sproat asked whether the Indus sign lists
+move their own statistics, and the Davletshin scripts after A. Davletshin asked to
+see the lines the events sit on rather than the counts. Both answers went into the
+paper, and one of them took a claim out of it.
 
 Earlier / supporting runs: `measure.py`, `power.py`, `normalized.py` (rongopy
 JSON tablets, 13 objects — the first pass), `ceipp_run.py` (CEIPP XML with the

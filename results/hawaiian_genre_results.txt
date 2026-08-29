@@ -1,0 +1,14 @@
+========================================================================================
+HAWAIIAN SONG vs PROSE, both normalised to unmarked orthography
+========================================================================================
+  songs: 1329 pages -> 15241 Hawaiian lines
+  prose: 25658 Hawaiian lines
+  song syllable tokens 164143 in 15241 runs (mean 10.8)
+  prose syllable tokens 697324 in 25658 runs (mean 27.2)
+  matched at N = 164143, song run lengths
+
+genre          L     Hcn   signal      AA     AAA    ABAB
+song          40   0.765  -0.0885    0.46    0.35    7.20
+prose         39   0.762  -0.0804    0.59    0.21    4.33
+
+  rongorongo, best catalogue, matched null: Hcn 0.807 signal -0.047, AA 1.12 AAA 1.68 ABAB 20.7

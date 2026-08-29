@@ -1,0 +1,13 @@
+====================================================================================
+SPLIT-HALF: is the song AAA excess stable across two disjoint halves?
+====================================================================================
+  songs A (664)    tokens  88149   AA 0.47  AAA 0.38  ABAB 7.14
+  songs B (665)    tokens  76018   AA 0.46  AAA 0.32  ABAB 7.57
+  prose A          tokens 343006   AA 0.54  AAA 0.14  ABAB 3.88
+  prose B          tokens 354318   AA 0.54  AAA 0.15  ABAB 4.44
+
+====================================================================================
+ORTHOGRAPHY, reported separately as promised: songs with marks kept
+====================================================================================
+  marked    L= 88 tokens 164167  Hcn 0.673  signal -0.1089   AA 0.46 AAA 0.44 ABAB 10.00
+  unmarked  L= 40 tokens 164167  Hcn 0.765  signal -0.0885   AA 0.46 AAA 0.35 ABAB 7.27

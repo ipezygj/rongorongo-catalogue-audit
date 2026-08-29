@@ -1,0 +1,22 @@
+====================================================================================
+INDUS: the curve across the reachable part of the published sign-set range
+====================================================================================
+L          signal  coverage   note
+150       -0.2514      9.7%   peak of the sweep
+200       -0.2430      6.2%   
+250       -0.2350      4.2%   
+300       -0.2288      3.0%   
+350       -0.2229      2.2%   
+386       -0.2203      1.8%   Parpola
+400       -0.2184      1.7%   
+417       -0.2171      1.6%   Mahadevan (full inventory)
+
+published range that can be measured, Parpola 386 to Mahadevan 417:
+  movement 0.0032, which is 1.5% of the signal at 417
+peak (150) to Mahadevan (417):
+  movement 0.0343, 13.7% of the peak signal, monotonically downward
+
+Wells (about 676) and ICIT (702) cannot be measured: reaching them needs a
+concordance that SPLITS Mahadevan's signs, and merging only goes downward.
+What the shape does say is the direction - both lie beyond 417 on a stretch
+that has been declining since 150, so the movement continues, it does not reverse.

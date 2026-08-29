@@ -1,0 +1,12 @@
+========================================================================================
+GENEALOGY vs PROSE at word level: signal by catalogue size
+========================================================================================
+Rapa Nui GENEALOGY         n= 2058 types= 352  -0.1531  -0.1618  -0.1630  -0.1400  -0.1347  -0.1005
+Maori GENEALOGY            n= 1475 types= 364  -0.1253  -0.1192  -0.1234  -0.1115  -0.0957  -0.0698
+GENEALOGY pooled           n= 3533 types= 668  -0.1321  -0.1315  -0.1307  -0.1284  -0.1247  -0.1081
+Rapa Nui PROSE (matched)   n= 3542 types= 437  -0.1056  -0.1152  -0.1403  -0.1478  -0.1346  -0.1158
+
+                           L=20    L=30    L=55    L=90    L=150   L=250 
+
+for comparison (climbing.py, N=15115): rongorongo peaks at L=90 (-0.0490);
+Rapa Nui words peak at L=150 (-0.1410); Hawaiian song words at L=90 (-0.0913).

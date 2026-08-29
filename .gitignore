@@ -10,3 +10,6 @@ paper/*.xdv
 paper/*.out
 indus/data/
 korovina_files/
+
+# draft correspondence -- never committed
+_*.txt

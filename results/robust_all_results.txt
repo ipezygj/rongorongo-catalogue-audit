@@ -1,0 +1,47 @@
+objects read: 25 (A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y)
+tokens after pseudoglyph removal: full 14325, base 14325, horley 15361
+
+================================================================================================
+PART 1: LADDER RATIO, PSEUDOGLYPHS REMOVED, OBJECT-PRESERVING NULL
+================================================================================================
+-- sanity check: pooled null, codes removed (should reproduce 4.28x) --
+  full    L=1884  n=14325  Hcn=0.376 sig=-0.048 z=-70.3
+  base    L=631   n=14325  Hcn=0.516 sig=-0.057 z=-66.0
+  horley  L=124   n=15361  Hcn=0.703 sig=-0.076 z=-63.1
+  spread 0.327 | best signal 0.076 | ratio 4.28x  (paper's pseudoglyph_audit.py: 4.28x)
+
+-- object-preserving null, codes removed (the new number, target ~4.42) --
+  full    L=1884  n=14325  Hcn=0.376 sig=-0.040 z=-53.6
+  base    L=631   n=14325  Hcn=0.516 sig=-0.052 z=-55.6
+  horley  L=124   n=15361  Hcn=0.703 sig=-0.071 z=-62.1
+  spread 0.327 | best signal 0.071 | ratio 4.59x
+
+================================================================================================
+PART 2: COMPOSITION -- HORLEY VS BEST MECHANICAL RULE, 000 EXCLUDED FROM THE SEARCH
+================================================================================================
+-- sanity check: original read_lines (000 kept), should reproduce 2.2x --
+  events=266 fair-set=139  Horley=40.3%  best mechanical=18.0%  ratio=2.24x  (paper's parallels3.py: 2.2x)
+
+-- 000 excluded from the parallel-passage search (the new number, target ~2.5) --
+  numeric    absorbed 25/132 = 18.9%
+  frequency  absorbed 0/132 = 0.0%
+  family     absorbed 11/132 = 8.3%
+  events=250 fair-set=132  Horley=39.4%  best mechanical=18.9%  ratio=2.08x
+
+================================================================================================
+PART 3: SYLLABARY GAP AT RONGORONGO'S BEST CATALOGUE, OBJECT-NULL, CODES REMOVED
+================================================================================================
+  Linear B (L=95)            rongorongo sigs={'numeric': -0.0272, 'horley': -0.0606, 'freq': -0.0514, 'random': -0.0425}  best=0.0606  ratio=2.51x  (paper's pooled-null figure: 2.4x)
+  Rapa Nui, length (L=105)   rongorongo sigs={'numeric': -0.0297, 'horley': -0.0623, 'freq': -0.0537, 'random': -0.0442}  best=0.0623  ratio=3.00x  (paper's pooled-null figure: 2.8x)
+  Maori, folded (L=52)       rongorongo sigs={'numeric': -0.0206, 'horley': -0.0414, 'freq': -0.0344, 'random': -0.0299}  best=0.0414  ratio=3.65x  (paper's pooled-null figure: 3.3x)
+  Rapa Nui, folded (L=55)    rongorongo sigs={'numeric': -0.0212, 'horley': -0.0436, 'freq': -0.0363, 'random': -0.0296}  best=0.0436  ratio=3.90x  (paper's pooled-null figure: 3.6x)
+
+================================================================================================
+PART 4: INDUS SIGNAL RETAINED UNDER A WITHIN-TEXT (WITHIN-RUN) NULL
+================================================================================================
+-- sanity check: pooled null (should reproduce -0.217, z~-169) --
+  L=417 n=13372 Hcn=0.377 sig=-0.217 z=-144.8
+
+-- within-run (within-text) null, the new number, target ~72%% retained --
+  L=417 n=13372 Hcn=0.377 sig=-0.157 z=-118.2
+  retained = 72.4% of pooled-null signal  (paper: 72%)

@@ -1,0 +1,18 @@
+  raw chant      111432 words
+  raw teaching     1216 words
+  raw narrative   25177 words
+  raw genealogy     339 words
+============================================================================================
+FOUR MAORI GENRES, word level, all cut to N = 1216 words
+============================================================================================
+genre        words  types  L=20    L=30    L=55    L=90    L=150   L=250 
+chant         1224    417  -0.0857  -0.1058  -0.0976  -0.0891  -0.0694  -0.0514   peak L=30
+teaching      1216    279  -0.1249  -0.1261  -0.1290  -0.1203  -0.1020  -0.0794   peak L=55
+narrative     1224    280  -0.1339  -0.1443  -0.1380  -0.1221  -0.1056  -0.0879   peak L=30
+
+genealogy is reported separately, at its own size against a size-matched
+narrative control, because Maori genealogy is only 339 words.
+genealogy              339    141  -0.2081  -0.1784  -0.1501  -0.1422        -        -   peak L=20
+narrative(matched)     347    120  -0.1149  -0.1142  -0.1005  -0.0759        -        -   peak L=20
+
+rongorongo peaks at L=90 (climbing.py, -0.0490).
