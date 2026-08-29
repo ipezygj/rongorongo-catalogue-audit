@@ -13,7 +13,7 @@ import io, os, re, time, urllib.request, urllib.error
 
 D = os.path.expanduser("~/script-audit/ref/hawaiian")
 os.makedirs(D, exist_ok=True)
-UA = {"User-Agent": "Mozilla/5.0 (research; contact ipezygj2@gmail.com)"}
+UA = {"User-Agent": "Mozilla/5.0 (research; contact ilpo@ipezygj.com)"}
 BASE = "https://www.huapala.org/"
 
 

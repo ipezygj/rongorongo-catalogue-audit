@@ -2,7 +2,7 @@
 import io, os, re, time, urllib.request
 
 D = os.path.expanduser("~/script-audit/ref/hawaiian")
-UA = {"User-Agent": "Mozilla/5.0 (research; contact ipezygj2@gmail.com)"}
+UA = {"User-Agent": "Mozilla/5.0 (research; contact ilpo@ipezygj.com)"}
 BASE = "https://www.huapala.org/"
 RAW = os.path.join(D, "songs_raw.txt")
 
