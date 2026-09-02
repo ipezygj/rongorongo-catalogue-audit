@@ -7,13 +7,17 @@ How the choice of sign inventory moves the statistics of an undeciphered script,
 measured on rongorongo. Code, results and paper draft.
 
 **Paper:** `paper/paper.pdf`, preprint of September 2026 — doi:10.5281/zenodo.22057706
-(concept DOI, resolves to the latest version). The paper here is one revision
-ahead of the latest deposit, 10.5281/zenodo.22252999 of 2 September 2026: it adds
-Davletshin's own caveat on ABAB, that he reads those alternations as rhetorical
-repetition and not as morphological reduplication (p.c., 1 September 2026); it
-repairs a Table reference in the robustness section that had lost its backslash and
-printed as source; and it repunctuates the prose. No result, table or figure
-changed. Corrections are being accumulated rather than deposited one at a time.
+(concept DOI, resolves to the latest version; the deposit this repository now
+matches is 10.5281/zenodo.22257931, 2 September 2026).
+
+Version 10 changes no result, table or figure. It adds Davletshin's own caveat on
+ABAB, that he reads those alternations as rhetorical repetition and not as
+morphological reduplication (p.c., 1 September 2026), so that the cross-language
+comparison is stated as a fact about the rate and not about the mechanism. It
+repairs a cross-reference in the robustness section that had lost its backslash:
+versions since the clarity pass of 29 August print "The ratio in Table~
+ef{tab:ladder}" where the table number should be, because LaTeX saw ordinary words,
+raised no warning and set them. And it unpacks 125 em dashes in the prose.
 
 Version 9 corrects a sign identification that reversed one of the paper's own
 results. Versions 1–8 gave Davletshin's "*Staff" sign as Barthel 200; it is
