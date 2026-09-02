@@ -7,8 +7,13 @@ How the choice of sign inventory moves the statistics of an undeciphered script,
 measured on rongorongo. Code, results and paper draft.
 
 **Paper:** `paper/paper.pdf`, preprint of September 2026 — doi:10.5281/zenodo.22057706
-(concept DOI, resolves to the latest version; the deposit this repository now
-matches is 10.5281/zenodo.22252999, 2 September 2026).
+(concept DOI, resolves to the latest version). The paper here is one revision
+ahead of the latest deposit, 10.5281/zenodo.22252999 of 2 September 2026: it adds
+Davletshin's own caveat on ABAB, that he reads those alternations as rhetorical
+repetition and not as morphological reduplication (p.c., 1 September 2026); it
+repairs a Table reference in the robustness section that had lost its backslash and
+printed as source; and it repunctuates the prose. No result, table or figure
+changed. Corrections are being accumulated rather than deposited one at a time.
 
 Version 9 corrects a sign identification that reversed one of the paper's own
 results. Versions 1–8 gave Davletshin's "*Staff" sign as Barthel 200; it is
