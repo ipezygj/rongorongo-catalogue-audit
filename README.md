@@ -6,9 +6,20 @@
 How the choice of sign inventory moves the statistics of an undeciphered script,
 measured on rongorongo. Code, results and paper draft.
 
-**Paper:** `paper/paper.pdf`, preprint of August 2026 — doi:10.5281/zenodo.22057706
+**Paper:** `paper/paper.pdf`, preprint of September 2026 — doi:10.5281/zenodo.22057706
 (concept DOI, resolves to the latest version; the deposit this repository now
-matches is 10.5281/zenodo.22159262, 29 August 2026).
+matches is 10.5281/zenodo.22252999, 2 September 2026).
+
+Version 9 corrects a sign identification that reversed one of the paper's own
+results. Versions 1–8 gave Davletshin's "*Staff" sign as Barthel 200; it is
+Barthel 001 (R. Wieczorek, p.c., 2 September 2026), and the figures printed under
+that name were 200's. Corrected, *Staff is the leading ABAB carrier of the 125
+sign types at 2.4 times the ligature-corrected median, where it had been reported
+as a median sign ranking high only through its frequency. 200 looked like the
+corpus's commonest sign only because the Horley map folds eight Barthel codes into
+it — which makes the mistake an instance of what this paper measures.
+`davletshin_locate.py` now runs the ligature audit per sign as well as on the
+total, and a plain-language conclusion has been added (§11).
 **Not redistributed:** `korovina_ref.py` and `campbell_probe.py` read four Rapa Nui text
 collections sent privately by E. Korovina. They are not in this repository and `fetch_data.py`
 does not download them; those two scripts will not run without them. Everything else does.

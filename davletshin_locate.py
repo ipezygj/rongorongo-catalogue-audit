@@ -16,7 +16,12 @@ out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 NOT_SIGNS = {"000", "999"}
 
 TARGETS = {"63": "TOKI ADZE", "70": "SHELL", "17": "SMALL SHELL",
-           "280": "TURTLE", "11": "MEA RED", "102": "URCHIN"}
+           "280": "TURTLE", "11": "MEA RED", "102": "URCHIN",
+           # Added 2026-09-02. His two syllabic signs were never located, only
+           # counted, and the count was on the wrong sign: *Staff is Barthel 001,
+           # not 200 (Wieczorek, p.c., 2 Sep 2026). A sign whose ABAB rate is the
+           # paper's evidence has to survive the same ligature audit as the rest.
+           "1": "*Staff = ki", "381": "Sitting Man = ka"}
 
 
 def object_runs_prov(path):
@@ -79,7 +84,7 @@ print("objects kept:", len(set(r[0]["tab"] for r in allruns)),
       "| runs:", len(allruns),
       "| tokens:", sum(len(r) for r in allruns), file=out)
 
-for code in ["63", "70", "17", "280", "11", "102"]:
+for code in ["1", "381", "63", "70", "17", "280", "11", "102"]:
     print("\n" + "=" * 92, file=out)
     print("%s  (Horley %s)" % (TARGETS[code], code), file=out)
     print("=" * 92, file=out)
@@ -138,4 +143,57 @@ print("  events from 3 physical glyphs (one member split): %d (%.1f%%)"
 print("\n  first examples of the <=2-glyph kind:", file=out)
 for rf, toks in examples:
     print("    %-20s %s" % (rf, " ".join("%s->%s" % (c, t) for c, t in toks)), file=out)
+out.flush()
+
+
+# --- Per-sign version of the same audit. The corpus-wide 17 % above says nothing
+# --- about whether any ONE sign's rate survives, and the two syllabic signs are
+# --- the ones the argument rests on. An event is counted as real for a sign only
+# --- when its four slots are four distinct physical glyphs on the object.
+print("\n\n" + "=" * 92, file=out)
+print("PER-SIGN ABAB, RAW vs LIGATURE-CORRECTED", file=out)
+print("=" * 92, file=out)
+raw = Counter(); real = Counter(); toks = Counter()
+for r in allruns:
+    for d in r:
+        toks[d["t"]] += 1
+    for i in range(len(r) - 3):
+        a, b = r[i], r[i + 1]
+        if a["t"] == r[i + 2]["t"] and b["t"] == r[i + 3]["t"] and a["t"] != b["t"]:
+            four = len(set(gid(d) for d in r[i:i + 4])) == 4
+            for t in (a["t"], b["t"]):
+                raw[t] += 1
+                if four:
+                    real[t] += 1
+
+# The corrected observation gets a corrected median, not the raw one: comparing a
+# cleaned numerator against a dirty reference is the asymmetric comparison this
+# paper is about.
+elig = [t for t in toks if toks[t] >= 50]
+med_raw = sorted(100.0 * raw.get(t, 0) / toks[t] for t in elig)[len(elig) // 2]
+med_real = sorted(100.0 * real.get(t, 0) / toks[t] for t in elig)[len(elig) // 2]
+print("  types with >=50 tokens: %d | median per100  raw %.2f  corrected %.2f"
+      % (len(elig), med_raw, med_real), file=out)
+
+order_raw = sorted(toks, key=lambda t: (-raw.get(t, 0), -toks[t]))
+order_real = sorted(toks, key=lambda t: (-real.get(t, 0), -toks[t]))
+rk_raw = {t: i + 1 for i, t in enumerate(order_raw)}
+rk_real = {t: i + 1 for i, t in enumerate(order_real)}
+
+print("\n  %-6s %7s | %5s %7s %6s | %5s %7s %6s" %
+      ("sign", "tokens", "raw", "per100", "rank", "corr", "per100", "rank"), file=out)
+shown = order_real[:15]
+for t in shown + [x for x in ("1", "381", "200") if x not in shown]:
+    print("  %-6s %7d | %5d %7.2f %6s | %5d %7.2f %6s" %
+          (t, toks[t], raw.get(t, 0), 100.0 * raw.get(t, 0) / toks[t], rk_raw[t],
+           real.get(t, 0), 100.0 * real.get(t, 0) / toks[t], rk_real[t]), file=out)
+
+print("\n  Davletshin's two syllabic signs against the corrected median:", file=out)
+for t, lab in (("1", "*Staff = ki"), ("381", "Sitting Man = ka")):
+    r = 100.0 * real.get(t, 0) / toks[t]
+    print("    %-6s %-18s corrected %.2f per 100 = %.2fx the corrected median (%.2f)"
+          % (t, lab, r, r / med_real, med_real), file=out)
+r200 = 100.0 * real.get("200", 0) / toks["200"]
+print("    %-6s %-18s corrected %.2f per 100 = %.2fx  <- the code the paper used"
+      % ("200", "(not *Staff)", r200, r200 / med_real), file=out)
 out.flush()
