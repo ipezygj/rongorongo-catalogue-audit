@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this code or these results, please cite the preprint and this repository."
 title: "How the choice of sign inventory moves the statistics of an undeciphered script: rongorongo under three published readings, with the Indus script as an outside check (code and results)"
 type: software
-version: "0.2.0"
-date-released: "2026-09-02"
+version: "0.2.1"
+date-released: "2026-09-18"
 authors:
   - family-names: "Väätäinen"
     given-names: "Ilpo"
