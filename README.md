@@ -8,7 +8,19 @@ measured on rongorongo. Code, results and paper draft.
 
 **Paper:** `paper/paper.pdf`, preprint of September 2026 — doi:10.5281/zenodo.22057706
 (concept DOI, resolves to the latest version; the deposit this repository now
-matches is 10.5281/zenodo.22257931, 2 September 2026).
+matches is 10.5281/zenodo.22825533, version 12, 18 September 2026).
+
+Versions 11 and 12 change no measurement, table or number of ours. They correct
+statements about other people's work, checked line by line against the source texts
+on 18 September 2026: Barthel's counts as Davletshin actually characterises them,
+what he says ABAB resembles and where the plural sense comes from, the two-sign-class
+proposal restored to its 2012 source and its hedges, a Fischer clause that turned out
+to be an encyclopaedia's paraphrase rather than his sentence, EBUDS as the concordance
+Rao et al. used rather than their dataset, the Wells and ICIT sign counts with their
+provenance stated, and the fixed-core constraint identified as our own choice rather
+than E. Korovina's. The *Staff correction is credited to Albert Davletshin, who named
+it first, and to Rafał Wieczorek, who supplied the code the next day. The paper
+lists all of it under "Corrections in this version".
 
 Version 10 changes no result, table or figure. It adds Davletshin's own caveat on
 ABAB, that he reads those alternations as rhetorical repetition and not as
